@@ -1,0 +1,21 @@
+# Capturas, rascunhos e artefatos locais de validação
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*.zip
+/chrome-*
+/*-dom.html
+/.chrome-*/
+/.codex-*/
+
+# Dados locais e segredos
+.env
+.env.*
+!.env.example
+*.log
+
+# Dependências e saídas de build
+node_modules/
+dist/
+build/

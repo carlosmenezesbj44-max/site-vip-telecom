@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Educa | Cursos gratuitos VIP Telecom</title>
+  <meta name="description" content="Pagina do VIP Educa com cursos gratuitos para clientes VIP Telecom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-a:#f2e7ff;
+      --bg-b:#b18cff;
+      --bg-c:#4d22a7;
+      --text:#22123f;
+      --muted:#5f4d7a;
+      --card:rgba(255,255,255,.9);
+      --line:rgba(95,53,212,.12);
+      --shadow:0 26px 64px rgba(77,34,167,.16);
+      --accent:#5f35d4;
+      --accent-2:#8f63ff;
+      --radius-xl:36px;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --max-width:1220px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope",sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(255,255,255,.9), transparent 18%),
+        radial-gradient(circle at 88% 14%, rgba(143,99,255,.22), transparent 20%),
+        linear-gradient(180deg, var(--bg-a) 0%, #d9c2ff 44%, var(--bg-b) 100%);
+    }
+    body::before, body::after{content:"";position:fixed;pointer-events:none;border-radius:999px;filter:blur(12px);opacity:.6}
+    body::before{width:300px;height:300px;left:-100px;top:-90px;background:rgba(255,255,255,.36)}
+    body::after{width:260px;height:260px;right:-90px;bottom:100px;background:rgba(95,53,212,.12)}
+    a{color:inherit;text-decoration:none}
+    .shell{width:min(calc(100% - 32px),var(--max-width));margin:0 auto;position:relative;z-index:1}
+    .topbar{padding:18px 0 10px}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border:1px solid rgba(95,53,212,.12);border-radius:22px;background:rgba(255,255,255,.56);backdrop-filter:blur(12px);box-shadow:0 14px 34px rgba(77,34,167,.08)}
+    .brand{display:inline-flex;align-items:center;gap:12px;font-family:"Sora",sans-serif;font-weight:800;font-size:.95rem}
+    .brand-mark{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(180deg,#fff1ff,#d4b8ff);border:1px solid rgba(95,53,212,.12)}
+    .brand-mark svg{width:24px;height:24px;fill:none;stroke:#5f35d4;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .back-link{display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 16px;border-radius:999px;background:rgba(95,53,212,.08);border:1px solid rgba(95,53,212,.12);font-size:.88rem;font-weight:800;transition:transform .2s ease, background .2s ease}
+    .back-link:hover{transform:translateY(-1px);background:rgba(95,53,212,.12)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(340px,.96fr);gap:28px;align-items:center;padding:16px 0 28px}
+    .hero-copy{display:grid;gap:22px;padding:12px 0}
+    .eyebrow{width:fit-content;padding:10px 16px;border-radius:999px;background:rgba(95,53,212,.08);border:1px solid rgba(95,53,212,.12);font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+    h1{margin:0;max-width:12ch;font-family:"Sora",sans-serif;font-size:clamp(3rem,5.7vw,5.3rem);line-height:.94;letter-spacing:-.06em;text-wrap:balance}
+    .hero-copy p{margin:0;max-width:54ch;font-size:clamp(1rem,1.45vw,1.15rem);line-height:1.6;color:var(--muted)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:14px;font-size:.95rem;font-weight:900;transition:transform .2s ease, box-shadow .2s ease}
+    .cta.primary{background:linear-gradient(180deg,#5f35d4,#4825a5);color:#fff;box-shadow:0 18px 30px rgba(77,34,167,.18)}
+    .cta.secondary{background:rgba(255,255,255,.66);border:1px solid rgba(95,53,212,.12);color:var(--accent)}
+    .cta:hover{transform:translateY(-1px)}
+    .course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .course-card{display:grid;gap:12px;justify-items:center;padding:18px 16px 16px;min-height:108px;border-radius:22px;background:rgba(255,255,255,.9);color:var(--text);border:1px solid rgba(95,53,212,.12);box-shadow:0 16px 30px rgba(77,34,167,.12)}
+    .course-card .icon{width:52px;height:52px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+    .course-card svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .course-card span{font-weight:800;font-size:.95rem}
+    .icon.purple{background:linear-gradient(180deg,#8f63ff,#6538df)}
+    .icon.blue{background:linear-gradient(180deg,#4b86ff,#325edd)}
+    .icon.green{background:linear-gradient(180deg,#35d27d,#119352)}
+    .icon.pink{background:linear-gradient(180deg,#f44d98,#d81d74)}
+    .visual{position:relative;min-height:620px;display:grid;place-items:center}
+    .mockup-stage{position:relative;width:min(100%,640px);aspect-ratio:.95;display:grid;place-items:center;filter:drop-shadow(0 26px 38px rgba(77,34,167,.2))}
+    .screen{position:absolute;inset:16% 6% 18% 20%;border-radius:18px;background:linear-gradient(180deg, rgba(24,14,52,.96), rgba(13,8,31,.98));border:2px solid rgba(255,255,255,.16);box-shadow:0 22px 40px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.12);overflow:hidden}
+    .screen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 20%, rgba(143,99,255,.22), transparent 26%), radial-gradient(circle at 88% 22%, rgba(255,255,255,.08), transparent 18%), linear-gradient(135deg, rgba(95,53,212,.2), transparent 26%);opacity:.95}
+    .screen-topbar{position:absolute;inset:0 0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+    .screen-banner{position:absolute;left:22px;top:86px;width:min(56%,260px);display:grid;gap:12px}
+    .screen-tag{width:fit-content;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.13);font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .screen-title{margin:0;font-family:"Sora",sans-serif;font-size:clamp(1.65rem,3vw,2.5rem);line-height:.95;letter-spacing:-.05em;text-wrap:balance}
+    .screen-copy{margin:0;max-width:28ch;font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.88)}
+    .screen-cta{width:fit-content;padding:10px 14px;border-radius:10px;background:linear-gradient(180deg,#8f63ff,#6538df);color:#fff;font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 14px 24px rgba(143,99,255,.28)}
+    .supporting-ui{position:absolute;left:14px;right:14px;bottom:15px;height:112px;border-radius:16px;background:rgba(22,10,46,.74);border:1px solid rgba(255,255,255,.08);overflow:hidden}
+    .supporting-strip{position:absolute;inset:14px 16px auto;height:36px;display:flex;gap:8px}
+    .support-card{flex:1;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.08)}
+    .support-grid{position:absolute;inset:56px 16px 12px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+    .support-thumb{border-radius:9px;background:linear-gradient(135deg,rgba(143,99,255,.92),rgba(95,53,212,.92));min-height:38px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+    .device-float{position:absolute;border-radius:18px;background:rgba(255,255,255,.97);color:#12212a;box-shadow:0 20px 34px rgba(77,34,167,.16);border:1px solid rgba(255,255,255,.72);overflow:hidden}
+    .device-float.laptop{left:4%;bottom:9%;width:42%;aspect-ratio:1.23;transform:rotate(-4deg);z-index:2}
+    .device-float.phone{right:0;bottom:7%;width:18%;aspect-ratio:.58;border-radius:22px;transform:rotate(1deg);z-index:3}
+    .device-float.tablet{right:13%;top:9%;width:26%;aspect-ratio:.72;border-radius:24px;transform:rotate(6deg);z-index:1}
+    .float-screen{position:absolute;inset:0;padding:12px;background:linear-gradient(180deg,#24134f,#0f0822)}
+    .float-header{display:flex;justify-content:space-between;align-items:center;color:rgba(255,255,255,.8);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+    .float-body{display:grid;gap:8px}
+    .float-card{height:22px;border-radius:8px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
+    .float-card.feature{height:58px;background:linear-gradient(135deg,rgba(143,99,255,.92),rgba(95,53,212,.88))}
+    .float-thumb-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+    .float-thumb-row .float-card{height:28px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.07))}
+    .section{padding:18px 0 38px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .section-title h2{margin:0;font-family:"Sora",sans-serif;font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.05;letter-spacing:-.04em}
+    .section-title p{margin:0;max-width:48ch;color:var(--muted);line-height:1.55}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .step{padding:18px;border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(95,53,212,.12);backdrop-filter:blur(10px);box-shadow:0 16px 30px rgba(77,34,167,.1)}
+    .step .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;margin-bottom:14px;background:rgba(95,53,212,.08);font-family:"Sora",sans-serif;font-weight:800;color:var(--accent)}
+    .step h3{margin:0 0 8px;font-family:"Sora",sans-serif;font-size:1.05rem}
+    .step p{margin:0;line-height:1.58;color:var(--muted)}
+    .track-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 0 20px}
+    .track-card{padding:18px;border-radius:24px;background:rgba(255,255,255,.84);border:1px solid rgba(95,53,212,.12);box-shadow:0 16px 30px rgba(77,34,167,.1)}
+    .track-card strong{display:block;font-family:"Sora",sans-serif;font-size:1rem;margin-bottom:8px;color:var(--accent)}
+    .track-card span{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(143,99,255,.12);font-size:.76rem;font-weight:900;color:var(--accent);margin-bottom:10px}
+    .track-card p{margin:0;color:var(--muted);line-height:1.55}
+    .footer{padding:8px 0 24px;color:rgba(34,18,63,.72);text-align:center;font-size:.88rem}
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr}
+      .visual{min-height:560px}
+      .track-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:760px){
+      .shell{width:min(calc(100% - 20px),var(--max-width))}
+      .topbar-inner{padding:12px 14px}
+      .brand{font-size:.84rem}
+      .brand-mark{width:38px;height:38px}
+      .back-link{min-height:38px;padding:0 12px;font-size:.8rem}
+      h1{max-width:10ch}
+      .course-grid,.steps,.track-grid{grid-template-columns:1fr}
+      .visual{min-height:460px}
+      .mockup-stage{width:min(100%,500px)}
+      .screen{inset:16% 4% 21% 13%}
+      .screen-banner{left:18px;top:72px;width:min(58%,220px)}
+      .device-float.laptop{width:47%;left:0}
+      .device-float.phone{width:20%}
+      .device-float.tablet{width:29%;right:10%}
+      .section-title{flex-direction:column;align-items:flex-start}
+      .supporting-strip{inset-inline:12px}
+      .support-grid{inset:56px 12px 12px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9.5 12 5l8 4.5-8 4.5-8-4.5Z"></path><path d="M6.5 11.1V16l5.5 3 5.5-3v-4.9"></path></svg></span>
+          <span>VIP Educa VIP Telecom</span>
+        </div>
+        <a class="back-link" href="planos.html"><span>Voltar aos planos</span><span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Cursos gratuitos</div>
+        <h1>VIP Educa para aprender uma nova profissao</h1>
+        <p>Uma trilha de cursos gratuitos para clientes VIP com foco em informatica, barbearia, salao de beleza e outras habilidades que ajudam no mercado de trabalho.</p>
+        <div class="cta-row">
+          <a class="cta primary" href="planos.html#planos">Ver planos</a>
+          <a class="cta secondary" href="https://wa.me/558002009056?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20VIP%20Educa" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+        <div class="course-grid" aria-label="Cursos disponiveis">
+          <div class="course-card"><div class="icon purple" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path><path d="m10 9 5 3-5 3V9z"></path></svg></div><span>Informática</span></div>
+          <div class="course-card"><div class="icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2"></circle><circle cx="6" cy="17" r="2"></circle><path d="m8 8 8 4"></path><path d="m8 16 8-4"></path></svg></div><span>Barbearia</span></div>
+          <div class="course-card"><div class="icon green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 0 16h1.5a1.5 1.5 0 0 0 0-3H13a1 1 0 0 1 0-2h2a3 3 0 0 0 3-3 8 8 0 0 0-6-8z"></path></svg></div><span>Salão de beleza</span></div>
+          <div class="course-card"><div class="icon pink" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="5"></circle><path d="m9 15-2 5 5-2 5 2-2-5"></path><path d="M10.5 10.5 12 12l2.5-2.5"></path></svg></div><span>Certificado</span></div>
+        </div>
+      </div>
+      <div class="visual" aria-label="Prévia visual do VIP Educa">
+        <div class="mockup-stage">
+          <div class="screen" aria-hidden="true">
+            <div class="screen-topbar"><span>vip educa</span><span>cursos / trilhas / certificado</span></div>
+            <div class="screen-banner">
+              <div class="screen-tag">Formação gratuita</div>
+              <h2 class="screen-title">Cursos que ajudam a abrir portas na cidade.</h2>
+              <p class="screen-copy">Abra a plataforma e acompanhe aulas com foco em profissão, aprendizado rápido e certificado.</p>
+              <div class="screen-cta">Comecar agora</div>
+            </div>
+            <div class="supporting-ui">
+              <div class="supporting-strip"><div class="support-card"></div><div class="support-card"></div><div class="support-card"></div></div>
+              <div class="support-grid"><div class="support-thumb"></div><div class="support-thumb"></div><div class="support-thumb"></div><div class="support-thumb"></div></div>
+            </div>
+          </div>
+          <div class="device-float tablet" aria-hidden="true"><div class="float-screen"><div class="float-header"><span>tablet</span><span>educa</span></div><div class="float-body"><div class="float-card feature"></div><div class="float-thumb-row"><div class="float-card"></div><div class="float-card"></div><div class="float-card"></div><div class="float-card"></div></div></div></div></div>
+          <div class="device-float laptop" aria-hidden="true"><div class="float-screen"><div class="float-header"><span>computador</span><span>curso</span></div><div class="float-body"><div class="float-card feature"></div><div class="float-card"></div><div class="float-card"></div></div></div></div>
+          <div class="device-float phone" aria-hidden="true"><div class="float-screen"><div class="float-header"><span>mobile</span><span>aulas</span></div><div class="float-body"><div class="float-card feature"></div><div class="float-card"></div><div class="float-card"></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section">
+      <div class="section-title">
+        <h2>Como funciona</h2>
+        <p>O cliente acessa os cursos gratuitos, acompanha as aulas no ritmo dele e pode se preparar para uma nova fonte de renda.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><div class="num">1</div><h3>Contrate o plano</h3><p>Após contratar o plano VIP Telecom, a equipe VIP orientará você com os passos necessários até acessar o aplicativo.</p></article>
+        <article class="step"><div class="num">2</div><h3>Siga as aulas</h3><p>Veja o conteúdo pela plataforma com passo a passo simples e direto.</p></article>
+        <article class="step"><div class="num">3</div><h3>Conclua com certificado</h3><p>Finalize a formação e destaque a entrega de certificado para o cliente.</p></article>
+      </div>
+    </section>
+
+    <section class="shell section">
+      <div class="section-title">
+        <h2>Trilhas em destaque</h2>
+        <p>Uma vitrine de cursos para explicar o benefício de forma concreta para o cliente VIP.</p>
+      </div>
+      <div class="track-grid">
+        <article class="track-card"><span>Curso 01</span><strong>Informática básica</strong><p>Computador, internet e ferramentas para o dia a dia de trabalho.</p></article>
+        <article class="track-card"><span>Curso 02</span><strong>Barbearia profissional</strong><p>Técnicas de atendimento, corte e organização para iniciar na área.</p></article>
+        <article class="track-card"><span>Curso 03</span><strong>Salão de beleza</strong><p>Conteúdo para unhas, escova, finalização e atendimento ao cliente.</p></article>
+        <article class="track-card"><span>Curso 04</span><strong>Empreender melhor</strong><p>Uma base para o aluno transformar a formação em renda.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">VIP Educa e uma pagina de apresentacao criada para destacar os cursos gratuitos no site.</footer>
+</body>
+</html>

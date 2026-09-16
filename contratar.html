@@ -1,0 +1,1810 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contratar plano | VIP Telecom</title>
+  <meta name="description" content="Preencha seus dados, escolha o plano e envie a proposta pronta para o WhatsApp da VIP Telecom.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-0: #043f48;
+      --bg-1: #095964;
+      --bg-2: #0d7280;
+      --surface: rgba(255, 255, 255, 0.08);
+      --surface-strong: rgba(255, 255, 255, 0.96);
+      --surface-soft: rgba(255, 255, 255, 0.14);
+      --line: rgba(255, 255, 255, 0.14);
+      --text: #f5fffd;
+      --muted: rgba(245, 255, 253, 0.76);
+      --ink: #113137;
+      --accent: #7df0e6;
+      --accent-2: #ffb64d;
+      --accent-3: #7b8cff;
+      --shadow: 0 28px 72px rgba(2, 26, 30, 0.34);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(125, 240, 230, 0.22), transparent 20%),
+        radial-gradient(circle at 82% 16%, rgba(255, 182, 77, 0.18), transparent 20%),
+        radial-gradient(circle at 82% 82%, rgba(123, 140, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, #04515c 0%, #083f48 46%, #072f36 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(12px);
+      opacity: 0.62;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 320px;
+      height: 320px;
+      left: -120px;
+      top: -100px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      bottom: 100px;
+      background: rgba(125, 240, 230, 0.12);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 18px 0 10px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px) saturate(1.1);
+      box-shadow: 0 18px 34px rgba(1, 20, 24, 0.18);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Sora", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(125, 240, 230, 0.24), rgba(255, 255, 255, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+      gap: 26px;
+      align-items: stretch;
+      padding: 12px 0 24px;
+    }
+
+    .hero-copy,
+    .hero-spotlight,
+    .panel {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px) saturate(1.05);
+    }
+
+    /* Formulário direto: mantém a lógica de seleção, mas reduz a tela ao cadastro. */
+    .hero {
+      grid-template-columns: minmax(0, 1fr);
+      margin-bottom: 20px;
+    }
+
+    .hero-spotlight {
+      display: none;
+    }
+
+    .workspace {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .workspace > .panel:first-child {
+      display: none;
+    }
+
+    .workspace > .panel:last-child {
+      padding: 28px;
+    }
+
+    .hero-copy h1 {
+      max-width: 18ch;
+    }
+
+    .hero-copy > p {
+      max-width: 58ch;
+    }
+
+    .hero-copy {
+      padding: 30px;
+      display: grid;
+      gap: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 182, 77, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #d9fffb;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 58ch;
+      font-size: clamp(1rem, 1.45vw, 1.14rem);
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #effffb;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .meta-chip strong {
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .hero-spotlight {
+      padding: 24px;
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-spotlight::before,
+    .hero-spotlight::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-spotlight::before {
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(125, 240, 230, 0.22), transparent 68%);
+    }
+
+    .hero-spotlight::after {
+      width: 180px;
+      height: 180px;
+      left: -60px;
+      bottom: -70px;
+      background: radial-gradient(circle, rgba(255, 182, 77, 0.18), transparent 68%);
+    }
+
+    .spotlight-head {
+      display: grid;
+      gap: 10px;
+    }
+
+    .spotlight-badge {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #dffcf8;
+    }
+
+    .spotlight-title {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.35rem, 2.4vw, 2.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    .spotlight-copy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .spotlight-value {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      box-shadow: 0 18px 34px rgba(1, 16, 18, 0.18);
+    }
+
+    .spotlight-value small {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(17, 49, 55, 0.68);
+    }
+
+    .spotlight-value strong {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .spotlight-value span {
+      color: rgba(17, 49, 55, 0.72);
+      line-height: 1.5;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.14fr) minmax(320px, 0.86fr);
+      gap: 22px;
+      padding: 0 0 34px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .panel + .panel {
+      position: sticky;
+      top: 16px;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.28rem, 2vw, 1.8rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .category-btn {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      padding: 15px 14px;
+      border-radius: 22px;
+      text-align: left;
+      cursor: pointer;
+      display: grid;
+      gap: 10px;
+      min-height: 120px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .category-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: 0 14px 28px rgba(1, 18, 20, 0.2);
+    }
+
+    .category-btn.is-active {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.1));
+      border-color: rgba(125, 240, 230, 0.6);
+      box-shadow: 0 18px 32px rgba(1, 18, 20, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .category-btn .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .category-btn svg,
+    .plan-icon svg,
+    .summary-emoji svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .category-btn strong {
+      font-family: "Sora", sans-serif;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .category-btn span {
+      color: rgba(245, 255, 253, 0.72);
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+
+    .category-btn[data-category="residencial"] .icon { background: linear-gradient(180deg, #31c8c1, #0b7f87); }
+    .category-btn[data-category="game"] .icon { background: linear-gradient(180deg, #8d65ff, #5f39db); }
+    .category-btn[data-category="comercial"] .icon { background: linear-gradient(180deg, #25c3c7, #0f8e98); }
+    .category-btn[data-category="empresarial"] .icon { background: linear-gradient(180deg, #ffb84f, #f07b14); }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .plan-card {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06));
+      color: var(--text);
+      border-radius: 24px;
+      padding: 18px;
+      text-align: left;
+      cursor: pointer;
+      display: grid;
+      gap: 14px;
+      min-height: 222px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, transparent, rgba(125, 240, 230, 0.08), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(1, 16, 18, 0.24);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .plan-card:hover::before,
+    .plan-card.is-selected::before {
+      opacity: 1;
+    }
+
+    .plan-card.is-selected {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+      border-color: rgba(125, 240, 230, 0.68);
+      box-shadow: 0 20px 40px rgba(1, 16, 18, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    .plan-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .plan-tag {
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #d9fffb;
+      margin-bottom: 10px;
+    }
+
+    .plan-name {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: 1.18rem;
+      letter-spacing: -0.04em;
+    }
+
+    .plan-speed {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .plan-speed strong {
+      font-family: "Sora", sans-serif;
+      font-size: 1.95rem;
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .plan-speed span {
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245, 255, 253, 0.74);
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .plan-price strong {
+      font-family: "Sora", sans-serif;
+      font-size: 2.1rem;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .plan-price .amount {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      font-weight: 900;
+    }
+
+    .plan-price .amount small {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .plan-price .amount sup {
+      top: -0.2em;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .plan-price .period {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: rgba(245, 255, 253, 0.74);
+    }
+
+    .plan-note {
+      margin: 0;
+      color: rgba(245, 255, 253, 0.76);
+      line-height: 1.48;
+      font-size: 0.95rem;
+    }
+
+    .plan-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: rgba(245, 255, 253, 0.86);
+    }
+
+    .category-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(245, 255, 253, 0.84);
+      line-height: 1.55;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid .double {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: rgba(245, 255, 253, 0.84);
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .field input::placeholder {
+      color: rgba(17, 49, 55, 0.45);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(125, 240, 230, 0.82);
+      box-shadow: 0 0 0 4px rgba(125, 240, 230, 0.16);
+    }
+
+    .summary-card {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--ink);
+      box-shadow: 0 20px 40px rgba(1, 16, 18, 0.18);
+    }
+
+    .summary-card h3 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: 1.18rem;
+      letter-spacing: -0.04em;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+      padding: 12px 0;
+      border-top: 1px solid rgba(17, 49, 55, 0.08);
+    }
+
+    .summary-line:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .summary-line span {
+      color: rgba(17, 49, 55, 0.62);
+      font-size: 0.88rem;
+    }
+
+    .summary-line strong {
+      text-align: right;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    .summary-total {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #0b646e, #094b53);
+      color: #fff;
+      display: grid;
+      gap: 8px;
+    }
+
+    .summary-total small {
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .summary-total strong {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .summary-total span {
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.55;
+    }
+
+    .submit-btn {
+      appearance: none;
+      border: 0;
+      width: 100%;
+      min-height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffbf57, #f48a19);
+      color: #122226;
+      font-family: "Sora", sans-serif;
+      font-size: 0.96rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 16px 30px rgba(255, 191, 87, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(255, 191, 87, 0.32);
+    }
+
+    .submit-note {
+      margin: 0;
+      color: rgba(245, 255, 253, 0.76);
+      line-height: 1.55;
+      font-size: 0.94rem;
+    }
+
+    .footer-note {
+      padding: 2px 0 28px;
+      text-align: center;
+      color: rgba(245, 255, 253, 0.62);
+      font-size: 0.88rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Layout objetivo: seleção de plano e formulário claro, direto e compacto. */
+    body {
+      background: #ffffff;
+      color: #26343d;
+    }
+
+    .topbar {
+      background: #ffffff;
+      border-bottom: 1px solid #dbe3e8;
+      box-shadow: none;
+    }
+
+    .topbar-inner {
+      min-height: 72px;
+    }
+
+    .brand {
+      color: #078fd0;
+    }
+
+    .brand-mark {
+      background: #08a9e6;
+      color: #ffffff;
+    }
+
+    .back-link {
+      color: #078fd0;
+      border: 1px solid #a9dced;
+      background: #ffffff;
+    }
+
+    .hero {
+      display: none;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 1140px;
+      padding: 30px 0 0;
+    }
+
+    .workspace > .panel:first-child {
+      display: block;
+      order: 1;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .workspace > .panel:last-child {
+      order: 2;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .workspace > .panel:first-child .section-head,
+    .category-grid,
+    .category-note {
+      display: none;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px;
+      margin: 0 0 22px;
+    }
+
+    .plan-card {
+      min-height: 170px;
+      border: 1px solid #079fe0;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #078fd0;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .plan-card.is-selected,
+    .plan-card:hover {
+      border-color: #078fd0;
+      box-shadow: 0 5px 14px rgba(7, 143, 208, 0.12);
+    }
+
+    .plan-top {
+      background: #ffffff !important;
+      color: #078fd0 !important;
+      padding: 20px 16px 14px;
+    }
+
+    .plan-label,
+    .plan-speed strong,
+    .plan-speed span,
+    .plan-city,
+    .plan-price,
+    .plan-period {
+      color: #078fd0 !important;
+    }
+
+    .plan-foot {
+      background: #ffffff !important;
+      padding: 0 16px 16px;
+    }
+
+    .plan-features,
+    .plan-cta {
+      display: none;
+    }
+
+    .plan-card.featured {
+      border-color: #079fe0;
+      box-shadow: none;
+    }
+
+    .plan-card.featured::after {
+      content: "MAIS ESCOLHIDO";
+      display: block;
+      position: absolute;
+      inset: 0 0 auto;
+      padding: 5px;
+      background: #08a9e6;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .section-head {
+      margin: 0 0 14px;
+    }
+
+    .section-head h2 {
+      color: #26343d;
+      font-size: 1.15rem;
+    }
+
+    .section-head p,
+    .submit-note,
+    .footer-note {
+      color: #82909a;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px 10px;
+    }
+
+    .form-grid > .field:first-child,
+    .summary-card,
+    .summary-total,
+    .submit-btn,
+    .submit-note {
+      grid-column: 1 / -1;
+    }
+
+    .double {
+      display: contents;
+    }
+
+    .field label {
+      color: #8b969e;
+      font-size: 0.78rem;
+    }
+
+    .field input,
+    .field select {
+      min-height: 42px;
+      border: 1px solid #d6e0e6;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #26343d;
+      box-shadow: none;
+    }
+
+    .summary-card,
+    .summary-total {
+      border: 1px solid #d6e0e6;
+      border-radius: 5px;
+      background: #f9fbfc;
+      color: #26343d;
+      box-shadow: none;
+    }
+
+    .summary-total {
+      display: none;
+    }
+
+    .submit-btn {
+      min-height: 50px;
+      border-radius: 4px;
+      background: #08a9e6;
+      color: #ffffff;
+      box-shadow: none;
+    }
+
+    @media (max-width: 760px) {
+      .plan-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace > .panel:last-child {
+        padding: 0;
+      }
+    }
+
+    /* Identidade visual VIP Telecom aplicada ao formulário simplificado. */
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(36, 177, 180, 0.28), transparent 34%),
+        linear-gradient(145deg, #063e47 0%, #075d66 48%, #0b7b82 100%);
+      color: #f4fffe;
+    }
+
+    .topbar {
+      background: rgba(4, 66, 75, 0.72);
+      border-bottom: 1px solid rgba(174, 241, 235, 0.18);
+      box-shadow: none;
+    }
+
+    .brand {
+      color: #f4fffe;
+    }
+
+    .back-link {
+      color: #f4fffe;
+      border-color: rgba(174, 241, 235, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar {
+      padding: 16px 0 12px;
+      background: transparent;
+      border-bottom: 0;
+    }
+
+    .topbar-inner {
+      min-height: 64px;
+      padding: 12px 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px) saturate(1.1);
+      box-shadow: 0 18px 34px rgba(1, 20, 24, 0.18);
+    }
+
+    .brand-mark {
+      background: linear-gradient(180deg, rgba(125, 240, 230, 0.24), rgba(255, 255, 255, 0.08));
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .workspace > .panel:first-child,
+    .workspace > .panel:last-child {
+      color: #f4fffe;
+    }
+
+    .plan-card {
+      min-height: 190px;
+      border-color: rgba(166, 239, 233, 0.34);
+      background: rgba(4, 68, 77, 0.68);
+      color: #f4fffe;
+      box-shadow: 0 14px 28px rgba(0, 31, 37, 0.18);
+    }
+
+    .plan-card.is-selected,
+    .plan-card:hover {
+      border-color: #74e3d9;
+      box-shadow: 0 16px 32px rgba(0, 31, 37, 0.28);
+    }
+
+    .plan-top,
+    .plan-foot {
+      background: transparent !important;
+    }
+
+    .plan-label,
+    .plan-speed strong,
+    .plan-speed span,
+    .plan-city,
+    .plan-price,
+    .plan-period {
+      color: #f4fffe !important;
+    }
+
+    .plan-card.featured::after {
+      background: #ff8b2b;
+    }
+
+    .section-head h2 {
+      color: #f4fffe;
+    }
+
+    .section-head p,
+    .submit-note,
+    .footer-note {
+      color: rgba(235, 255, 253, 0.72);
+    }
+
+    .field label {
+      color: rgba(235, 255, 253, 0.82);
+    }
+
+    .field input,
+    .field select {
+      border-color: rgba(178, 232, 229, 0.42);
+      background: rgba(255, 255, 255, 0.96);
+      color: #17343a;
+    }
+
+    .summary-card {
+      border-color: rgba(166, 239, 233, 0.28);
+      background: rgba(4, 68, 77, 0.54);
+      color: #f4fffe;
+    }
+
+    .summary-card h3,
+    .summary-card .summary-line span {
+      color: rgba(235, 255, 253, 0.78);
+    }
+
+    .summary-card .summary-line strong {
+      color: #f4fffe;
+    }
+
+    .submit-btn {
+      background: linear-gradient(180deg, #ffbd55, #f18420);
+      color: #17343a;
+      box-shadow: 0 14px 24px rgba(255, 157, 49, 0.2);
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .panel + .panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .topbar-inner {
+        padding: 12px 14px;
+      }
+
+      .brand {
+        font-size: 0.84rem;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .back-link {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 0.8rem;
+      }
+
+      .hero-copy,
+      .hero-spotlight,
+      .panel {
+        padding: 20px;
+        border-radius: 26px;
+      }
+
+      h1 {
+        max-width: 10ch;
+      }
+
+      .category-grid,
+      .plan-grid,
+      .form-grid .double {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-card {
+        min-height: 204px;
+      }
+    }
+
+    /* Profundidade visual para os planos no tema VIP. */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(8px);
+    }
+
+    body::before {
+      width: 460px;
+      height: 460px;
+      top: 96px;
+      left: -190px;
+      background: radial-gradient(circle, rgba(57, 224, 211, 0.25), transparent 67%);
+    }
+
+    body::after {
+      width: 560px;
+      height: 560px;
+      top: 140px;
+      right: -250px;
+      background: radial-gradient(circle, rgba(255, 178, 76, 0.19), transparent 66%);
+    }
+
+    .plan-grid {
+      gap: 20px;
+      perspective: 1200px;
+    }
+
+    .plan-card {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 16px;
+      border-color: rgba(174, 241, 235, 0.30);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(114, 238, 226, 0.20), transparent 40%),
+        linear-gradient(155deg, rgba(10, 101, 110, 0.92), rgba(4, 63, 72, 0.92));
+      box-shadow:
+        0 18px 34px rgba(0, 28, 34, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .plan-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.10) 45%, transparent 62%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 230% 100%, 38px 38px, 38px 38px;
+      opacity: 0.72;
+      transition: background-position 0.45s ease, opacity 0.28s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px) rotateX(2deg);
+      border-color: rgba(160, 255, 247, 0.82);
+      box-shadow:
+        0 28px 44px rgba(0, 26, 31, 0.35),
+        0 0 0 1px rgba(109, 244, 232, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .plan-card:hover::before {
+      background-position: 100% 0, 0 0, 0 0;
+      opacity: 1;
+    }
+
+    .plan-card.is-selected {
+      transform: translateY(-6px);
+      border-color: #8df7ed;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(176, 255, 245, 0.34), transparent 44%),
+        linear-gradient(155deg, rgba(27, 137, 143, 0.98), rgba(6, 83, 91, 0.97));
+      box-shadow:
+        0 28px 48px rgba(0, 28, 34, 0.38),
+        0 0 0 1px rgba(165, 255, 246, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .plan-card.is-selected::after {
+      content: "PLANO SELECIONADO";
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(222, 255, 251, 0.16);
+      border: 1px solid rgba(222, 255, 251, 0.28);
+      color: #efffff;
+      font-size: 0.61rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .plan-card.featured::after {
+      top: 14px;
+      right: 14px;
+      left: auto;
+      bottom: auto;
+      width: auto;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffb953, #f68122);
+      box-shadow: 0 8px 16px rgba(104, 46, 6, 0.24);
+    }
+
+    .plan-card.is-selected.featured::after {
+      content: "MAIS ESCOLHIDO";
+    }
+
+    @media (max-width: 760px) {
+      body::before { left: -290px; }
+      body::after { right: -360px; }
+      .plan-card:hover,
+      .plan-card.is-selected { transform: translateY(-3px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 9.5 12 5l8 4.5-8 4.5-8-4.5Z"></path>
+              <path d="M6.5 11.1V16l5.5 3 5.5-3v-4.9"></path>
+            </svg>
+          </span>
+          <span>VIP Telecom | Contratar</span>
+        </div>
+        <nav aria-label="Navegação principal" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.86)"><a href="index.html">Home</a><a href="index.html#beneficios">Benefícios</a><a href="index.html#solucoes">Diferenciais</a><a href="planos.html">Planos</a><a href="index.html#depoimentos">Depoimentos</a><a href="https://agilitytelecomudp.com.br/central_assinante_web/login" target="_blank" rel="noopener noreferrer" style="padding:9px 12px;border:1px solid rgba(216,247,246,.42);border-radius:10px;color:#fff;background:rgba(86,227,218,.2);font-weight:800">Área do assinante ↗</a></nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Etapa de contratação</div>
+        <h1>Finalize sua contratação.</h1>
+        <p>Preencha seus dados. Depois, enviaremos a solicitação pronta para o WhatsApp da VIP Telecom.</p>
+        <div class="hero-meta">
+          <span class="meta-chip">Cidade: <strong id="heroCity">Belo Jardim</strong></span>
+          <span class="meta-chip">UF: <strong id="heroState">PE</strong></span>
+          <span class="meta-chip">Categoria: <strong id="heroCategory">Residencial</strong></span>
+          <span class="meta-chip">Valor: <strong id="heroValue">R$ 60,00</strong></span>
+        </div>
+      </div>
+      <aside class="hero-spotlight">
+        <div class="spotlight-head">
+          <div class="spotlight-badge">Resumo rápido</div>
+          <h2 class="spotlight-title" id="spotlightPlan">Plano Start</h2>
+          <p class="spotlight-copy" id="spotlightCopy">Use a página para montar a proposta final com base no plano que você escolher.</p>
+        </div>
+        <div class="spotlight-value">
+          <small>Valor mensal</small>
+          <strong id="spotlightPrice">R$ 60,00</strong>
+          <span id="spotlightSub">Plano residencial com envio direto para o WhatsApp.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="workspace">
+      <div class="panel">
+        <div class="section-head">
+          <h2>1. Escolha a categoria e o plano</h2>
+          <p>O residencial já segue os valores aprovados. Game, Comercial e Empresarial entram aqui como modelos provisórios até você substituir pelos valores finais.</p>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+        <div class="plan-grid" id="planGrid" aria-label="Planos disponíveis"></div>
+        <div class="category-note" id="categoryNote"></div>
+      </div>
+
+      <div class="panel">
+        <div class="section-head">
+          <h2>Dados para contratação</h2>
+          <p>Informe os dados do cliente para confirmar a instalação.</p>
+        </div>
+        <form id="contractForm" class="form-grid" novalidate>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" placeholder="Digite o nome do cliente" required>
+          </div>
+          <div class="double">
+            <div class="field">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input id="telefone" name="telefone" type="tel" placeholder="(81) 99999-9999" required>
+            </div>
+            <div class="field">
+              <label for="estado">Estado</label>
+              <select id="estado" name="estado" required>
+                <option value="PE">PE</option>
+                <option value="PB">PB</option>
+                <option value="AL">AL</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" name="cidade" type="text" placeholder="Belo Jardim" required>
+          </div>
+          <div class="field">
+            <label for="endereco">Endereço</label>
+            <input id="endereco" name="endereco" type="text" placeholder="Rua, número e referência" required>
+          </div>
+          <div class="double">
+            <div class="field">
+              <label for="bairro">Bairro</label>
+              <input id="bairro" name="bairro" type="text" placeholder="Nome do bairro" required>
+            </div>
+            <div class="field">
+              <label for="complemento">Complemento</label>
+              <input id="complemento" name="complemento" type="text" placeholder="Apartamento, casa, bloco">
+            </div>
+          </div>
+          <div class="field">
+            <label for="local">Local de instalação</label>
+            <select id="local" name="local" required>
+              <option value="">Selecione o local</option>
+              <option value="Casa">Casa</option>
+              <option value="Apartamento">Apartamento</option>
+              <option value="Comércio">Comércio</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="horario">Horário para contato</label>
+            <input id="horario" name="horario" type="text" placeholder="Ex.: manhã ou tarde">
+          </div>
+          <div class="field">
+            <label for="celulares">Quantidade de celulares</label>
+            <select id="celulares" name="celulares">
+              <option value="">Qtd. de celulares</option>
+              <option>1</option><option>2</option><option>3</option><option>4 ou mais</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="computadores">Quantidade de computadores</label>
+            <select id="computadores" name="computadores">
+              <option value="">Qtd. de computadores</option>
+              <option>1</option><option>2</option><option>3</option><option>4 ou mais</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tvs">Quantidade de TVs</label>
+            <select id="tvs" name="tvs">
+              <option value="">Qtd. de TVs</option>
+              <option>1</option><option>2</option><option>3</option><option>4 ou mais</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="vencimento">Melhor dia de vencimento</label>
+            <select id="vencimento" name="vencimento" required>
+              <option value="">Selecione o melhor dia</option>
+              <option>05</option><option>10</option><option>15</option><option>20</option><option>25</option>
+            </select>
+          </div>
+
+          <div class="summary-card" aria-live="polite">
+            <h3>Resumo do pedido</h3>
+            <div class="summary-line">
+              <span>Categoria</span>
+              <strong id="summaryCategory">Residencial</strong>
+            </div>
+            <div class="summary-line">
+              <span>Plano</span>
+              <strong id="summaryPlan">Start</strong>
+            </div>
+            <div class="summary-line">
+              <span>Valor</span>
+              <strong id="summaryValue">R$ 60,00</strong>
+            </div>
+            <div class="summary-line">
+              <span>Envio</span>
+              <strong>WhatsApp pronto para abrir</strong>
+            </div>
+          </div>
+
+          <div class="summary-total">
+            <small>Mensagem pronta</small>
+            <strong id="summaryTotal">R$ 60,00</strong>
+            <span id="summaryHint">Basta preencher os dados, escolher o plano e clicar em me contratar.</span>
+          </div>
+
+          <button class="submit-btn" type="submit">Me contratar no WhatsApp</button>
+          <p class="submit-note">Ao clicar, o WhatsApp abre com a mensagem pronta contendo nome, endereço, telefone, plano e valor.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer-note">Solicitação enviada pelo WhatsApp para confirmação de disponibilidade, instalação e próximos passos.</div>
+  </main>
+
+  <script>
+    const categoryMeta = {
+      residencial: {
+        label: "Residencial",
+        note: "Planos aprovados para casa, com os valores e velocidades que já estavam certos.",
+        accent: "linear-gradient(180deg, #31c8c1, #0b7f87)",
+        icon: '<svg viewBox="0 0 24 24"><path d="M4 10.5 12 5l8 5.5"></path><path d="M6 10v8h12v-8"></path><path d="M10 18v-5h4v5"></path></svg>'
+      },
+      game: {
+        label: "Game",
+        note: "Modelos provisórios para jogatinas e baixa latência até entrar o valor real.",
+        accent: "linear-gradient(180deg, #8d65ff, #5f39db)",
+        icon: '<svg viewBox="0 0 24 24"><path d="M7 15h10"></path><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M6.5 8.5h11a3.5 3.5 0 0 1 0 7h-11a3.5 3.5 0 0 1 0-7Z"></path></svg>'
+      },
+      comercial: {
+        label: "Comercial",
+        note: "Modelos provisórios para lojas, atendimento e rotina do comércio local.",
+        accent: "linear-gradient(180deg, #25c3c7, #0f8e98)",
+        icon: '<svg viewBox="0 0 24 24"><path d="M5 10h14"></path><path d="M6 10v8h12v-8"></path><path d="M7 6h10l1 4H6z"></path><path d="M10 14h4"></path></svg>'
+      },
+      empresarial: {
+        label: "Empresarial",
+        note: "Modelos provisórios para equipes maiores, operação interna e prioridade ampliada.",
+        accent: "linear-gradient(180deg, #ffb84f, #f07b14)",
+        icon: '<svg viewBox="0 0 24 24"><path d="M5 19V5h14v14"></path><path d="M9 19v-5h6v5"></path><path d="M9 8h.01M12 8h.01M15 8h.01M9 11h.01M12 11h.01M15 11h.01"></path></svg>'
+      }
+    };
+
+    const plansByCategory = {
+      residencial: [
+        { key: "start", name: "Start", speed: "200 MB", price: "60,00", tagline: "Entrada leve", details: ["Instalação grátis", "Roteador Wi-Fi incluso", "Canais Abertos"] },
+        { key: "turbo", name: "Turbo", speed: "300 MB", price: "70,00", tagline: "Mais velocidade", details: ["Instalação grátis", "Roteador Wi-Fi incluso", "VIP Clube"] },
+        { key: "elite", name: "Elite", speed: "500 MB", price: "100,00", tagline: "Mais equilíbrio", details: ["Canais Abertos", "VIP Educa", "Deezer"] },
+        { key: "sumpreme", name: "Sumpreme", speed: "500 MB", price: "129,00", tagline: "Completo", details: ["VIP Clube", "VIP Educa", "Deezer", "Docway", "MAX"] }
+      ],
+      game: [
+        { key: "game-elite", name: "VIP Gamer Elite", speed: "500 MB", price: "99,90", tagline: "Seu game sem lag", details: ["ExitLag", "HBO Max"] }
+      ],
+      comercial: [
+        { key: "com-start", name: "Comercial Start", speed: "300 MB", price: "99,90", tagline: "Rotina leve", details: ["Atendimento simples", "Operacao enxuta", "Estabilidade"] },
+        { key: "com-pro", name: "Comercial Pro", speed: "500 MB", price: "129,90", tagline: "Fluxo contínuo", details: ["Mais folga", "Rede melhor", "Suporte ágil"] },
+        { key: "com-plus", name: "Comercial Plus", speed: "700 MB", price: "159,90", tagline: "Mais demanda", details: ["Mais usuários", "Mais estabilidade", "Atendimento amplo"] },
+        { key: "com-max", name: "Comercial Max", speed: "900 MB", price: "199,90", tagline: "Operacao completa", details: ["Alta carga", "Rede forte", "Prioridade ampliada"] }
+      ],
+      empresarial: [
+        { key: "emp-start", name: "Empresarial Start", speed: "400 MB", price: "139,90", tagline: "Filial enxuta", details: ["Equipe pequena", "Rede organizada", "Suporte dedicado"] },
+        { key: "emp-pro", name: "Empresarial Pro", speed: "600 MB", price: "179,90", tagline: "Rede equilibrada", details: ["Mais folga", "Operação contínua", "Melhor cobertura"] },
+        { key: "emp-premium", name: "Empresarial Premium", speed: "800 MB", price: "219,90", tagline: "Prioridade ampliada", details: ["Mais estabilidade", "Fluxo forte", "Alta demanda"] },
+        { key: "emp-max", name: "Empresarial Max", speed: "1000 MB", price: "269,90", tagline: "Alta demanda", details: ["Trabalho pesado", "Rede premium", "Prioridade máxima"] }
+      ]
+    };
+
+    const categoryOrder = ["residencial", "game", "comercial", "empresarial"];
+    const categoryGrid = document.getElementById("categoryGrid");
+    const planGrid = document.getElementById("planGrid");
+    const categoryNote = document.getElementById("categoryNote");
+    const contractForm = document.getElementById("contractForm");
+    const estadoInput = document.getElementById("estado");
+    const cidadeInput = document.getElementById("cidade");
+    const heroCity = document.getElementById("heroCity");
+    const heroState = document.getElementById("heroState");
+    const heroCategory = document.getElementById("heroCategory");
+    const heroValue = document.getElementById("heroValue");
+    const spotlightPlan = document.getElementById("spotlightPlan");
+    const spotlightCopy = document.getElementById("spotlightCopy");
+    const spotlightPrice = document.getElementById("spotlightPrice");
+    const spotlightSub = document.getElementById("spotlightSub");
+    const summaryCategory = document.getElementById("summaryCategory");
+    const summaryPlan = document.getElementById("summaryPlan");
+    const summaryValue = document.getElementById("summaryValue");
+    const summaryTotal = document.getElementById("summaryTotal");
+    const summaryHint = document.getElementById("summaryHint");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const normalizeCategory = (value) => {
+      const category = String(value || "residencial").toLowerCase();
+      return plansByCategory[category] ? category : "residencial";
+    };
+    const normalizePlanKey = (category, value) => {
+      const key = String(value || "").toLowerCase();
+      if (category === "residencial" && key === "supreme") return "sumpreme";
+      return key;
+    };
+
+    let selectedCategory = normalizeCategory(urlParams.get("categoria"));
+    let selectedPlanByCategory = Object.fromEntries(categoryOrder.map((category) => [category, plansByCategory[category][0].key]));
+
+    const presetPlan = normalizePlanKey(selectedCategory, urlParams.get("plano"));
+    if (plansByCategory[selectedCategory].some((plan) => plan.key === presetPlan)) {
+      selectedPlanByCategory[selectedCategory] = presetPlan;
+    }
+
+    const planLookup = Object.fromEntries(
+      Object.entries(plansByCategory).flatMap(([category, plans]) => plans.map((plan) => [`${category}:${plan.key}`, plan]))
+    );
+
+    function moneyLabel(value) {
+      return `R$ ${value}`;
+    }
+
+    function getSelectedPlan() {
+      const plans = plansByCategory[selectedCategory];
+      const selectedKey = selectedPlanByCategory[selectedCategory];
+      return plans.find((plan) => plan.key === selectedKey) || plans[0];
+    }
+
+    function renderCategoryButtons() {
+      categoryGrid.innerHTML = categoryOrder.map((category) => {
+        const meta = categoryMeta[category];
+        const active = category === selectedCategory ? " is-active" : "";
+        return `
+          <button type="button" class="category-btn${active}" data-category="${category}">
+            <span class="icon" aria-hidden="true">${meta.icon}</span>
+            <strong>${meta.label}</strong>
+            <span>${meta.note}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderPlans() {
+      const plans = plansByCategory[selectedCategory];
+      const selectedKey = selectedPlanByCategory[selectedCategory];
+      if (!plans.some((plan) => plan.key === selectedKey)) {
+        selectedPlanByCategory[selectedCategory] = plans[0].key;
+      }
+      const currentPlan = getSelectedPlan();
+
+      planGrid.innerHTML = plans.map((plan) => {
+        const isSelected = plan.key === selectedPlanByCategory[selectedCategory] ? " is-selected" : "";
+        const provisional = selectedCategory === "residencial" ? "" : '<span class="mini-badge">Modelo provisório</span>';
+        return `
+          <button type="button" class="plan-card${isSelected}" data-plan="${plan.key}">
+            <div class="plan-top">
+              <div>
+                <div class="plan-tag">${categoryMeta[selectedCategory].label}</div>
+                <h3 class="plan-name">${plan.name}</h3>
+                <div class="plan-speed"><strong>${plan.speed.replace(" MB", "")}</strong><span>MB</span></div>
+              </div>
+              ${provisional}
+            </div>
+            <p class="plan-note">${plan.tagline}</p>
+            <div class="plan-badges">
+              ${plan.details.map((item) => `<span class="mini-badge">${item}</span>`).join("")}
+            </div>
+            <div class="plan-price">
+              <div>
+                <div class="amount"><small>R$</small><strong>${plan.price.split(",")[0]}</strong><sup>${plan.price.split(",")[1] || "00"}</sup></div>
+              </div>
+              <div class="period">Mensal</div>
+            </div>
+          </button>
+        `;
+      }).join("");
+
+      const meta = categoryMeta[selectedCategory];
+      categoryNote.textContent = meta.note;
+      heroCategory.textContent = meta.label;
+      heroValue.textContent = moneyLabel(currentPlan.price);
+      heroState.textContent = estadoInput.value;
+      heroCity.textContent = cidadeInput.value || "Belo Jardim";
+      spotlightPlan.textContent = `Plano ${currentPlan.name}`;
+      spotlightCopy.textContent = `Você está montando a proposta ${meta.label.toLowerCase()} com o valor de ${moneyLabel(currentPlan.price)}.`;
+      spotlightPrice.textContent = moneyLabel(currentPlan.price);
+      spotlightSub.textContent = `${meta.label} pronto para envio no WhatsApp.`;
+      summaryCategory.textContent = meta.label;
+      summaryPlan.textContent = currentPlan.name;
+      summaryValue.textContent = moneyLabel(currentPlan.price);
+      summaryTotal.textContent = moneyLabel(currentPlan.price);
+      summaryHint.textContent = `Mensagem pronta para o plano ${currentPlan.name} em ${cidadeInput.value || "sua cidade"}.`;
+      renderCategoryButtons();
+    }
+
+    function setCategory(category) {
+      if (!plansByCategory[category] || category === selectedCategory) return;
+      selectedCategory = category;
+      renderPlans();
+    }
+
+    function setPlan(planKey) {
+      selectedPlanByCategory[selectedCategory] = planKey;
+      renderPlans();
+    }
+
+    function buildWhatsAppMessage() {
+      const plan = getSelectedPlan();
+      const values = {
+        nome: document.getElementById("nome").value.trim(),
+        telefone: document.getElementById("telefone").value.trim(),
+        endereco: document.getElementById("endereco").value.trim(),
+        bairro: document.getElementById("bairro").value.trim(),
+        cidade: cidadeInput.value.trim(),
+        estado: estadoInput.value.trim(),
+        complemento: document.getElementById("complemento").value.trim(),
+        local: document.getElementById("local").value,
+        horario: document.getElementById("horario").value.trim(),
+        celulares: document.getElementById("celulares").value,
+        computadores: document.getElementById("computadores").value,
+        tvs: document.getElementById("tvs").value,
+        vencimento: document.getElementById("vencimento").value
+      };
+
+      const lines = [
+        "Olá, quero contratar o plano VIP Telecom.",
+        `Categoria: ${categoryMeta[selectedCategory].label}`,
+        `Plano: ${plan.name} - ${plan.speed} - ${moneyLabel(plan.price)}`,
+        `Nome: ${values.nome}`,
+        `Telefone: ${values.telefone}`,
+        `Endereço: ${values.endereco}`,
+        `Bairro: ${values.bairro}`,
+        `Cidade/UF: ${values.cidade}/${values.estado}`
+      ];
+
+      if (values.complemento) {
+        lines.push(`Complemento: ${values.complemento}`);
+      }
+
+      lines.push(`Local de instalaÃ§Ã£o: ${values.local}`);
+      if (values.horario) lines.push(`HorÃ¡rio para contato: ${values.horario}`);
+      if (values.celulares) lines.push(`Celulares: ${values.celulares}`);
+      if (values.computadores) lines.push(`Computadores: ${values.computadores}`);
+      if (values.tvs) lines.push(`TVs: ${values.tvs}`);
+      lines.push(`Melhor dia de vencimento: ${values.vencimento}`);
+
+      return lines.join("\n");
+    }
+
+    function buildWhatsAppUrl() {
+      const message = buildWhatsAppMessage();
+      return `https://wa.me/558002009056?text=${encodeURIComponent(message)}`;
+    }
+
+    categoryGrid.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+      setCategory(button.dataset.category);
+    });
+
+    planGrid.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-plan]");
+      if (!button) return;
+      setPlan(button.dataset.plan);
+    });
+
+    ["input", "change"].forEach((type) => {
+      contractForm.addEventListener(type, () => {
+        heroState.textContent = estadoInput.value || "PE";
+        heroCity.textContent = cidadeInput.value || "Belo Jardim";
+        renderPlans();
+      });
+    });
+
+    contractForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!contractForm.checkValidity()) {
+        contractForm.reportValidity();
+        return;
+      }
+      const url = buildWhatsAppUrl();
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    document.getElementById("nome").value = urlParams.get("nome") || "";
+    document.getElementById("telefone").value = urlParams.get("telefone") || "";
+    document.getElementById("endereco").value = urlParams.get("endereco") || "";
+    document.getElementById("bairro").value = urlParams.get("bairro") || "";
+    document.getElementById("complemento").value = urlParams.get("complemento") || "";
+    document.getElementById("local").value = urlParams.get("local") || "";
+    document.getElementById("horario").value = urlParams.get("horario") || "";
+    document.getElementById("celulares").value = urlParams.get("celulares") || "";
+    document.getElementById("computadores").value = urlParams.get("computadores") || "";
+    document.getElementById("tvs").value = urlParams.get("tvs") || "";
+    document.getElementById("vencimento").value = urlParams.get("vencimento") || "";
+    estadoInput.value = (urlParams.get("estado") || "PE").toUpperCase();
+    cidadeInput.value = urlParams.get("cidade") || "Belo Jardim";
+
+    renderPlans();
+
+    const firstState = document.getElementById("nome").value;
+    if (!firstState) {
+      document.getElementById("nome").focus();
+    }
+  </script>
+</body>
+</html>

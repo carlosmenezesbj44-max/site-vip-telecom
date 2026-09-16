@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITTV | Multi-plataforma VIP Telecom</title>
+  <meta name="description" content="Veja como funciona a ITTV da VIP Telecom e assista em TV, celular, computador, tablet e TV Box.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ff9d1a;
+      --bg-deep: #f07c08;
+      --bg-soft: #ffd064;
+      --text: #fff7ef;
+      --ink: #1d1610;
+      --panel: rgba(255, 255, 255, 0.92);
+      --panel-strong: #ffffff;
+      --line: rgba(255, 255, 255, 0.16);
+      --shadow: 0 28px 70px rgba(108, 48, 0, 0.24);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max-width: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background: linear-gradient(90deg, rgba(4, 9, 29, .96) 0%, rgba(4, 9, 29, .78) 42%, rgba(4, 9, 29, .18) 100%), url('assets/img/ittv-hero-background.png') center top / cover fixed no-repeat, #04091d;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.65;
+    }
+
+    body::before {
+      width: 320px;
+      height: 320px;
+      top: -110px;
+      left: -90px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    body::after {
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      bottom: 120px;
+      background: rgba(255, 224, 156, 0.18);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      padding: 18px 0 10px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 14px 34px rgba(126, 58, 0, 0.12);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Sora", sans-serif;
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 12px 26px rgba(2, 6, 23, 0.28);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .brand-mark img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      object-fit: contain;
+      border-radius: 9px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 28px;
+      align-items: center;
+      padding: 16px 0 30px;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 22px;
+      padding: 12px 0;
+    }
+
+    .hero-logo {
+      width: clamp(96px, 12vw, 138px);
+      height: auto;
+      display: block;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32), 0 0 36px rgba(42, 205, 255, 0.24);
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(3rem, 5.8vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 52ch;
+      font-size: clamp(1rem, 1.55vw, 1.18rem);
+      line-height: 1.58;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta.primary {
+      background: linear-gradient(180deg, #ffffff, #fff1d2);
+      color: #9a4b05;
+      box-shadow: 0 18px 30px rgba(113, 53, 0, 0.18);
+    }
+
+    .cta.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fffdf9;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-content: start;
+    }
+
+    .device-card {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      padding: 18px 16px 16px;
+      min-height: 110px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.93);
+      color: var(--ink);
+      box-shadow: 0 16px 30px rgba(108, 48, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.66);
+    }
+
+    .device-card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .device-card svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .device-card span {
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .icon.blue { background: linear-gradient(180deg, #4b86ff, #3563ea); }
+    .icon.orange { background: linear-gradient(180deg, #ff8f1f, #ff6d0a); }
+    .icon.green { background: linear-gradient(180deg, #34d168, #15a347); }
+    .icon.purple { background: linear-gradient(180deg, #8d5bff, #6a3cf6); }
+    .icon.pink { background: linear-gradient(180deg, #f5559e, #e72c80); }
+
+    .visual {
+      position: relative;
+      min-height: 620px;
+      display: grid;
+      place-items: center;
+    }
+
+    .mockup-stage {
+      position: relative;
+      width: min(100%, 640px);
+      aspect-ratio: 0.93;
+      display: grid;
+      place-items: center;
+      filter: drop-shadow(0 26px 38px rgba(97, 41, 0, 0.22));
+    }
+
+    .screen {
+      position: absolute;
+      inset: 16% 6% 18% 22%;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(18, 29, 38, 0.96), rgba(14, 18, 25, 0.98));
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 22px 40px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+    }
+
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.08), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(61, 255, 110, 0.16), transparent 24%),
+        linear-gradient(135deg, rgba(255, 154, 0, 0.18), transparent 30%);
+      opacity: 0.95;
+    }
+
+    .screen-topbar {
+      position: absolute;
+      inset: 0 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .screen-banner {
+      position: absolute;
+      left: 22px;
+      top: 88px;
+      width: min(52%, 250px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .screen-tag {
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .screen-title {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    .screen-copy {
+      margin: 0;
+      max-width: 28ch;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .screen-cta {
+      width: fit-content;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #ff3257, #ff1748);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 24px rgba(255, 41, 77, 0.32);
+    }
+
+    .supporting-ui {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 15px;
+      height: 108px;
+      border-radius: 16px;
+      background: rgba(9, 11, 18, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .supporting-strip {
+      position: absolute;
+      inset: 14px 16px auto;
+      height: 36px;
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .support-card {
+      flex: 1;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .support-grid {
+      position: absolute;
+      inset: 56px 16px 12px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .support-thumb {
+      border-radius: 9px;
+      background:
+        linear-gradient(135deg, rgba(255, 81, 81, 0.9), rgba(255, 195, 39, 0.9)),
+        #ff8b1a;
+      min-height: 38px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .device-float {
+      position: absolute;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #12212a;
+      box-shadow: 0 20px 34px rgba(57, 22, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      overflow: hidden;
+    }
+
+    .device-float.laptop {
+      left: 4%;
+      bottom: 9%;
+      width: 42%;
+      aspect-ratio: 1.23;
+      transform: rotate(-4deg);
+      z-index: 2;
+    }
+
+    .device-float.phone {
+      right: 0;
+      bottom: 7%;
+      width: 18%;
+      aspect-ratio: 0.58;
+      border-radius: 22px;
+      transform: rotate(1deg);
+      z-index: 3;
+    }
+
+    .device-float.tablet {
+      right: 13%;
+      top: 9%;
+      width: 26%;
+      aspect-ratio: 0.72;
+      border-radius: 24px;
+      transform: rotate(6deg);
+      z-index: 1;
+    }
+
+    .float-screen {
+      position: absolute;
+      inset: 0;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.92), transparent 18%),
+        linear-gradient(180deg, #171c29, #0a0f16);
+    }
+
+    .float-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.56rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .float-body {
+      display: grid;
+      gap: 8px;
+    }
+
+    .float-card {
+      height: 22px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+    }
+
+    .float-card.feature {
+      height: 58px;
+      background:
+        linear-gradient(135deg, rgba(255, 94, 31, 0.86), rgba(34, 197, 94, 0.88));
+    }
+
+    .float-thumb-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .float-thumb-row .float-card {
+      height: 28px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.07));
+    }
+
+    .section {
+      padding: 18px 0 38px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-title p {
+      margin: 0;
+      max-width: 48ch;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.55;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 30px rgba(104, 43, 0, 0.1);
+    }
+
+    .step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, 0.18);
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-family: "Sora", sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .step p {
+      margin: 0;
+      line-height: 1.58;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .footer {
+      padding: 10px 0 24px;
+      color: rgba(255, 255, 255, 0.78);
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 560px;
+      }
+
+      .hero-copy {
+        max-width: 860px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .topbar-inner {
+        gap: 10px;
+        padding: 12px 14px;
+      }
+
+      .brand {
+        font-size: 0.84rem;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .back-link {
+        flex: 0 0 42px;
+        min-height: 38px;
+        width: 42px;
+        padding: 0;
+        font-size: 0.8rem;
+      }
+
+      .back-link span:first-child {
+        display: none;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(2.15rem, 10vw, 2.55rem);
+        line-height: 1.05;
+      }
+
+      .hero-copy p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta {
+        max-width: 100%;
+      }
+
+      .device-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 460px;
+      }
+
+      .mockup-stage {
+        width: min(100%, 500px);
+      }
+
+      .screen {
+        inset: 16% 4% 21% 13%;
+      }
+
+      .screen-banner {
+        left: 18px;
+        top: 72px;
+        width: min(58%, 220px);
+      }
+
+      .device-float.laptop {
+        width: 47%;
+        left: 0;
+      }
+
+      .device-float.phone {
+        width: 20%;
+      }
+
+      .device-float.tablet {
+        width: 29%;
+        right: 10%;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .supporting-strip {
+        inset-inline: 12px;
+      }
+
+      .support-grid {
+        inset: 56px 12px 12px;
+      }
+    }
+
+    /* ITTV visual system: the supplied multi-screen artwork carries the hero atmosphere. */
+    .visual { min-height: 360px; }
+    .mockup-stage { display: none; }
+    .screen { border-color: rgba(96, 224, 255, .35); box-shadow: 0 22px 40px rgba(0,0,0,.42), 0 0 60px rgba(20,177,255,.18); }
+    .screen-cta { background: linear-gradient(135deg, #ffbc45, #ff4e87); }
+    .device-card { background: rgba(9, 18, 48, .84); color: #f2fbff; border-color: rgba(100,220,255,.25); backdrop-filter: blur(12px); }
+    .plan-note { margin: -10px 0 0; color: rgba(218,242,255,.76); font-size: .78rem; line-height: 1.45; }
+    .step { background: rgba(8, 16, 42, .72); border-color: rgba(100,220,255,.2); }
+    .footer { color: rgba(224,244,255,.82); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/img/ittv-logo.png" alt="">
+          </span>
+          <span>ITTV Multi-plataforma</span>
+        </div>
+        <a class="back-link" href="planos.html">
+          <span>Voltar aos planos</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div class="hero-copy">
+        <img class="hero-logo" src="assets/img/ittv-logo.png" alt="ITTV">
+        <div class="eyebrow">Multi-plataforma</div>
+        <h1>Entretenimento em todas as suas telas.</h1>
+        <p>Assista em qualquer lugar: na Smart TV da sala, no celular, no computador do trabalho, no tablet ou na TV Box. A experiência se adapta à tela e mantém a navegação simples.</p>
+        <div class="cta-row">
+          <a class="cta primary" href="planos.html#planos">Ver planos</a>
+          <a class="cta secondary" href="https://wa.me/558002009056?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20ITTV" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+        <p class="plan-note">Canais e recursos dependem do plano VIP Telecom contratado.</p>
+        <div class="device-grid" aria-label="Dispositivos suportados">
+          <div class="device-card">
+            <div class="icon blue" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path></svg>
+            </div>
+            <span>Computador</span>
+          </div>
+          <div class="device-card">
+            <div class="icon orange" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M8 19h8"></path><path d="M12 16v3"></path></svg>
+            </div>
+            <span>TV</span>
+          </div>
+          <div class="device-card">
+            <div class="icon green" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="7" y="3.5" width="10" height="17" rx="2"></rect><path d="M11 17h2"></path></svg>
+            </div>
+            <span>Mobile</span>
+          </div>
+          <div class="device-card">
+            <div class="icon purple" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4.5" y="3.5" width="15" height="17" rx="2"></rect><path d="M11.5 17h1"></path></svg>
+            </div>
+            <span>Tablet</span>
+          </div>
+          <div class="device-card">
+            <div class="icon pink" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4.5" y="6" width="15" height="11" rx="2"></rect><path d="M8 20h8"></path><path d="M12 17v3"></path><path d="M9 10h6"></path></svg>
+            </div>
+            <span>TV Box</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual" aria-label="Prévia visual da plataforma ITTV">
+        <div class="mockup-stage">
+          <div class="screen" aria-hidden="true">
+            <div class="screen-topbar">
+              <span>it tv</span>
+              <span>home / ao vivo / filmes</span>
+            </div>
+            <div class="screen-banner">
+              <div class="screen-tag">Plataforma digital</div>
+              <h2 class="screen-title">Sua programação, onde você estiver.</h2>
+              <p class="screen-copy">Abra a plataforma na TV, no celular ou no computador e continue assistindo onde estiver.</p>
+              <div class="screen-cta">Entrar no canal</div>
+            </div>
+            <div class="supporting-ui">
+              <div class="supporting-strip">
+                <div class="support-card"></div>
+                <div class="support-card"></div>
+                <div class="support-card"></div>
+              </div>
+              <div class="support-grid">
+                <div class="support-thumb"></div>
+                <div class="support-thumb"></div>
+                <div class="support-thumb"></div>
+                <div class="support-thumb"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="device-float tablet" aria-hidden="true">
+            <div class="float-screen">
+              <div class="float-header"><span>tablet</span><span>live</span></div>
+              <div class="float-body">
+                <div class="float-card feature"></div>
+                <div class="float-thumb-row">
+                  <div class="float-card"></div>
+                  <div class="float-card"></div>
+                  <div class="float-card"></div>
+                  <div class="float-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="device-float laptop" aria-hidden="true">
+            <div class="float-screen">
+              <div class="float-header"><span>computador</span><span>it tv</span></div>
+              <div class="float-body">
+                <div class="float-card feature"></div>
+                <div class="float-card"></div>
+                <div class="float-card"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="device-float phone" aria-hidden="true">
+            <div class="float-screen">
+              <div class="float-header"><span>mobile</span><span>ao vivo</span></div>
+              <div class="float-body">
+                <div class="float-card feature"></div>
+                <div class="float-card"></div>
+                <div class="float-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section">
+      <div class="section-title">
+        <h2>Como funciona</h2>
+        <p>Depois de contratar o plano com ITTV, você acessa os canais pela plataforma e escolhe o dispositivo que preferir para assistir.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <div class="num">1</div>
+          <h3>Contrate o plano VIP Telecom</h3>
+          <p>Após contratar o plano VIP Telecom, a equipe VIP orientará você com os passos necessários até acessar o aplicativo.</p>
+        </article>
+        <article class="step">
+          <div class="num">2</div>
+          <h3>Acesse a plataforma</h3>
+          <p>Receba as instruções de acesso e entre na ITTV no dispositivo que quiser usar no momento.</p>
+        </article>
+        <article class="step">
+          <div class="num">3</div>
+          <h3>Assista onde estiver</h3>
+          <p>Veja o conteúdo ao vivo ou sob demanda e alterne entre TV, computador, celular, tablet e TV Box.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    A disponibilidade de canais, recursos e dispositivos depende do plano VIP Telecom contratado. Consulte condições e compatibilidade com nossa equipe.
+  </footer>
+</body>
+</html>
