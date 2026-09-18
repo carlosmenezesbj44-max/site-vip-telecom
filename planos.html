@@ -2558,10 +2558,11 @@
     }
 
     .plans-grid[data-category="game"] {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 1010px;
+      grid-template-columns: minmax(0, 318px);
+      max-width: 318px;
       margin-inline: auto;
       gap: 28px;
+      justify-content: center;
     }
 
     .plan-card {
@@ -3808,10 +3809,10 @@
         { key: "game-elite", name: "VIP Gamer Elite", speed: "500 MB", price: "99,90", highlight: "Seu game sem lag", bundle: ["ExitLag", "HBO Max"], featured: true }
       ],
       comercial: [
-        { key: "com-start", name: "Comercial Start", speed: "200 MB", price: "90,00", highlight: "Rotina leve", bundle: sharedBenefits.start },
-        { key: "com-pro", name: "Comercial Pro", speed: "300 MB", price: "100,00", highlight: "Atendimento estável", bundle: sharedBenefits.turbo },
-        { key: "com-plus", name: "Comercial Plus", speed: "500 MB", price: "130,00", highlight: "Mais folga", bundle: sharedBenefits.elite },
-        { key: "com-max", name: "Comercial Max", speed: "500 MB", price: "160,00", highlight: "Operação completa", bundle: sharedBenefits.supreme, featured: true }
+        { key: "com-start", name: "Start Comercial", speed: "200 MB", price: "90,00", highlight: "Rotina leve", bundle: sharedBenefits.start },
+        { key: "com-pro", name: "Turbo Comercial", speed: "300 MB", price: "100,00", highlight: "Atendimento estável", bundle: sharedBenefits.turbo },
+        { key: "com-plus", name: "Elite Comercial", speed: "500 MB", price: "130,00", highlight: "Mais folga", bundle: sharedBenefits.elite },
+        { key: "com-max", name: "Supreme Comercial", speed: "500 MB", price: "160,00", highlight: "Operação completa", bundle: sharedBenefits.supreme, featured: true }
       ],
       empresarial: [
         { key: "emp-start", name: "Empresarial Start", speed: "400 MB", price: "139,90", highlight: "Filial enxuta", bundle: sharedBenefits.turbo },
@@ -4286,7 +4287,9 @@
     function renderPlans() {
       hideIttvPreview(0);
       const cityData = catalog[selectedState].cities[selectedCity];
-      const plans = cityData.plans || planCategories[selectedCategory];
+      const plans = selectedCategory === "residencial"
+        ? (cityData.plans || planCategories[selectedCategory])
+        : planCategories[selectedCategory];
       const selected = plans.some((plan) => plan.key === selectedPlanByCategory[selectedCategory])
         ? selectedPlanByCategory[selectedCategory]
         : plans[0].key;
@@ -4321,7 +4324,7 @@
             <div class="plan-sub">${plan.highlight}</div>
           </div>
           <div class="plan-foot">
-            ${isEnterprise ? '<div class="plan-price plan-price-contact"><strong>Consulte</strong></div><div class="plan-period">Condições para sua empresa</div>' : `<div class="plan-price"><small>R$</small><strong>${plan.price.split(",")[0]}</strong><sup>${plan.price.split(",")[1] || "00"}</sup></div><div class="plan-period">Mensal</div>`}
+            ${isEnterprise ? '' : `<div class="plan-price"><small>R$</small><strong>${plan.price.split(",")[0]}</strong><sup>${plan.price.split(",")[1] || "00"}</sup></div><div class="plan-period">Mensal</div>`}
             ${isEnterprise ? "" : `<ul class="plan-features">${items}</ul>`}
               ${isEnterprise ? `<a class="plan-cta" href="https://wa.me/558002009056?text=${encodeURIComponent(`Olá, vim pelo site e quero uma proposta para o plano ${plan.name} (${plan.speed}) em ${selectedCity}/${selectedState}.`)}" target="_blank" rel="noopener noreferrer">Falar com atendimento</a>` : `<a class="plan-cta" href="${buildContractUrl(selectedState, selectedCity, plan, selectedCategory)}">Contratar plano</a>`}
             </div>

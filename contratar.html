@@ -1312,16 +1312,18 @@
     .plan-card.is-selected::after {
       content: "PLANO SELECIONADO";
       position: absolute;
-      right: 14px;
-      bottom: 14px;
-      padding: 6px 9px;
+      top: 10px;
+      right: 8px;
+      bottom: auto;
+      padding: 4px 6px;
       border-radius: 999px;
       background: rgba(222, 255, 251, 0.16);
       border: 1px solid rgba(222, 255, 251, 0.28);
       color: #efffff;
-      font-size: 0.61rem;
+      font-size: 0.48rem;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
     }
 
     .plan-card.featured::after {
@@ -1397,7 +1399,7 @@
       <div class="panel">
         <div class="section-head">
           <h2>1. Escolha a categoria e o plano</h2>
-          <p>O residencial já segue os valores aprovados. Game, Comercial e Empresarial entram aqui como modelos provisórios até você substituir pelos valores finais.</p>
+          <p>Escolha uma categoria e confira os planos, velocidades e benefícios disponíveis.</p>
         </div>
         <div class="category-grid" id="categoryGrid"></div>
         <div class="plan-grid" id="planGrid" aria-label="Planos disponíveis"></div>
@@ -1533,19 +1535,19 @@
       },
       game: {
         label: "Game",
-        note: "Modelos provisórios para jogatinas e baixa latência até entrar o valor real.",
+        note: "Plano para jogadores com foco em desempenho e baixa latência.",
         accent: "linear-gradient(180deg, #8d65ff, #5f39db)",
         icon: '<svg viewBox="0 0 24 24"><path d="M7 15h10"></path><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M6.5 8.5h11a3.5 3.5 0 0 1 0 7h-11a3.5 3.5 0 0 1 0-7Z"></path></svg>'
       },
       comercial: {
         label: "Comercial",
-        note: "Modelos provisórios para lojas, atendimento e rotina do comércio local.",
+        note: "Planos para lojas, atendimento e rotina do comércio local.",
         accent: "linear-gradient(180deg, #25c3c7, #0f8e98)",
         icon: '<svg viewBox="0 0 24 24"><path d="M5 10h14"></path><path d="M6 10v8h12v-8"></path><path d="M7 6h10l1 4H6z"></path><path d="M10 14h4"></path></svg>'
       },
       empresarial: {
         label: "Empresarial",
-        note: "Modelos provisórios para equipes maiores, operação interna e prioridade ampliada.",
+        note: "Planos para equipes maiores, operação interna e prioridade ampliada.",
         accent: "linear-gradient(180deg, #ffb84f, #f07b14)",
         icon: '<svg viewBox="0 0 24 24"><path d="M5 19V5h14v14"></path><path d="M9 19v-5h6v5"></path><path d="M9 8h.01M12 8h.01M15 8h.01M9 11h.01M12 11h.01M15 11h.01"></path></svg>'
       }
@@ -1562,16 +1564,16 @@
         { key: "game-elite", name: "VIP Gamer Elite", speed: "500 MB", price: "99,90", tagline: "Seu game sem lag", details: ["ExitLag", "HBO Max"] }
       ],
       comercial: [
-        { key: "com-start", name: "Comercial Start", speed: "300 MB", price: "99,90", tagline: "Rotina leve", details: ["Atendimento simples", "Operacao enxuta", "Estabilidade"] },
-        { key: "com-pro", name: "Comercial Pro", speed: "500 MB", price: "129,90", tagline: "Fluxo contínuo", details: ["Mais folga", "Rede melhor", "Suporte ágil"] },
-        { key: "com-plus", name: "Comercial Plus", speed: "700 MB", price: "159,90", tagline: "Mais demanda", details: ["Mais usuários", "Mais estabilidade", "Atendimento amplo"] },
-        { key: "com-max", name: "Comercial Max", speed: "900 MB", price: "199,90", tagline: "Operacao completa", details: ["Alta carga", "Rede forte", "Prioridade ampliada"] }
+        { key: "com-start", name: "Start Comercial", speed: "200 MB", price: "90,00", tagline: "Rotina leve", details: ["Instalação grátis", "Roteador Wi-Fi incluso", "Canais Abertos", "Suporte Premium", "VIP Clube"] },
+        { key: "com-pro", name: "Turbo Comercial", speed: "300 MB", price: "100,00", tagline: "Atendimento estável", details: ["Instalação grátis", "Roteador Wi-Fi incluso", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer"] },
+        { key: "com-plus", name: "Elite Comercial", speed: "500 MB", price: "130,00", tagline: "Mais folga", details: ["Instalação grátis", "Roteador Wi-Fi 6", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer", "Looke"] },
+        { key: "com-max", name: "Supreme Comercial", speed: "500 MB", price: "160,00", tagline: "Operação completa", details: ["Instalação grátis", "Roteador Wi-Fi 6", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer", "Docway", "MAX"] }
       ],
       empresarial: [
-        { key: "emp-start", name: "Empresarial Start", speed: "400 MB", price: "139,90", tagline: "Filial enxuta", details: ["Equipe pequena", "Rede organizada", "Suporte dedicado"] },
-        { key: "emp-pro", name: "Empresarial Pro", speed: "600 MB", price: "179,90", tagline: "Rede equilibrada", details: ["Mais folga", "Operação contínua", "Melhor cobertura"] },
-        { key: "emp-premium", name: "Empresarial Premium", speed: "800 MB", price: "219,90", tagline: "Prioridade ampliada", details: ["Mais estabilidade", "Fluxo forte", "Alta demanda"] },
-        { key: "emp-max", name: "Empresarial Max", speed: "1000 MB", price: "269,90", tagline: "Alta demanda", details: ["Trabalho pesado", "Rede premium", "Prioridade máxima"] }
+        { key: "emp-start", name: "Empresarial Start", speed: "400 MB", price: "139,90", tagline: "Filial enxuta", details: ["Instalação grátis", "Roteador Wi-Fi incluso", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer"] },
+        { key: "emp-pro", name: "Empresarial Pro", speed: "600 MB", price: "179,90", tagline: "Rede equilibrada", details: ["Instalação grátis", "Roteador Wi-Fi 6", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer", "Looke"] },
+        { key: "emp-premium", name: "Empresarial Premium", speed: "800 MB", price: "219,90", tagline: "Prioridade ampliada", details: ["Instalação grátis", "Roteador Wi-Fi 6", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer", "Docway", "MAX"] },
+        { key: "emp-max", name: "Empresarial Max", speed: "1000 MB", price: "269,90", tagline: "Alta demanda", details: ["Instalação grátis", "Roteador Wi-Fi 6", "Canais Abertos", "Suporte Premium", "VIP Clube", "Vip Educa", "Deezer", "Docway", "MAX"] }
       ]
     };
 
@@ -1668,12 +1670,12 @@
             <div class="plan-badges">
               ${plan.details.map((item) => `<span class="mini-badge">${item}</span>`).join("")}
             </div>
-            <div class="plan-price">
+            ${selectedCategory !== "empresarial" ? `<div class="plan-price">
               <div>
                 <div class="amount"><small>R$</small><strong>${plan.price.split(",")[0]}</strong><sup>${plan.price.split(",")[1] || "00"}</sup></div>
               </div>
               <div class="period">Mensal</div>
-            </div>
+            </div>` : ""}
           </button>
         `;
       }).join("");

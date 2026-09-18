@@ -2809,6 +2809,18 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .instagram-section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+    .instagram-follow { display: inline-flex; align-items: center; gap: 9px; padding: 11px 16px; border: 1px solid rgba(7,93,102,.22); border-radius: 999px; color: #075d66; background: rgba(255,255,255,.68); font-weight: 900; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .instagram-follow:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 12px 24px rgba(4,52,58,.12); }
+    .instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+    .instagram-post { position: relative; display: block; aspect-ratio: 3 / 1; overflow: hidden; border-radius: 14px; border: 1px solid rgba(7,93,102,.14); background: #075d66; box-shadow: 0 12px 26px rgba(4,52,58,.1); }
+    .instagram-post img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, filter .35s ease; }
+    .instagram-post::after { content: "Abrir no Instagram ↗"; position: absolute; inset: auto 9px 9px; padding: 7px 8px; border: 1px solid rgba(255,255,255,.34); border-radius: 999px; background: rgba(3,47,56,.72); color: #fff; font-size: .66rem; font-weight: 800; text-align: center; opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease; backdrop-filter: blur(8px); }
+    .instagram-post:hover img { transform: scale(1.06); filter: brightness(.78); }
+    .instagram-post:hover::after { opacity: 1; transform: translateY(0); }
+    .testimonial-grid { display: none; }
+    @media (max-width: 760px) { .instagram-section-head { align-items: flex-start; flex-direction: column; } .instagram-grid { grid-template-columns: 1fr; gap: 10px; } }
+
     .testimonial-top {
       display: flex;
       align-items: center;
@@ -2834,17 +2846,103 @@
     }
 
     .cta-band {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 26px;
-      padding: 28px 30px;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      padding: 34px clamp(28px, 7vw, 96px);
       margin-top: 34px;
+      width: 100vw;
+      height: auto;
+      min-height: 300px;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      border-radius: 0;
+      border: 1px solid rgba(77, 239, 221, .34);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(53, 234, 216, .25), transparent 32%),
+        radial-gradient(circle at 48% 110%, rgba(0, 221, 255, .13), transparent 38%),
+        linear-gradient(120deg, #032f38 0%, #075e67 50%, #043f49 100%);
+      color: #fff;
+      isolation: isolate;
     }
 
+    .cta-band::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .18; background-image: linear-gradient(rgba(112,255,238,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(112,255,238,.18) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(90deg, #000, transparent 68%); }
+    .cta-band::after { content: ""; position: absolute; z-index: -1; width: 320px; height: 320px; left: 34%; top: -190px; border: 1px solid rgba(79,239,222,.24); border-radius: 50%; box-shadow: 0 0 70px rgba(53,234,216,.12), inset 0 0 70px rgba(53,234,216,.08); }
+
     .cta-band h3 {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      max-width: 12ch;
+      font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+      max-width: 17ch;
+      line-height: 1.08;
+      color: #fff;
+    }
+
+    .cta-support-photo {
+      position: absolute;
+      inset: 0 0 0 51%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .cta-support-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #075e67 0%, rgba(7,94,103,.65) 13%, transparent 42%), linear-gradient(0deg, rgba(2,38,45,.35), transparent 50%); }
+    .cta-support-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 30%; filter: saturate(.96) contrast(1.04); }
+    .cta-copy { position: relative; z-index: 2; width: min(46%, 560px); padding: 0; }
+    .cta-copy .eyebrow { color: #8cf5e7; border-color: rgba(140,245,231,.35); background: rgba(13,122,130,.25); }
+    .cta-copy p { max-width: 45ch; margin: 10px 0 16px; color: rgba(232,255,252,.78); line-height: 1.5; font-size: .9rem; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-actions .button-primary,
+    .cta-actions .button-secondary { position: relative; min-height: 52px; padding: 0 22px; border-radius: 999px; font-weight: 900; letter-spacing: -.01em; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
+    .cta-actions .button-primary::before,
+    .cta-actions .button-secondary::before { content: ""; position: absolute; inset: 1px; border-radius: inherit; pointer-events: none; opacity: .7; background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.6) 48%, transparent 72%); transform: translateX(-120%); transition: transform .7s ease; }
+    .cta-actions .button-primary:hover::before,
+    .cta-actions .button-secondary:hover::before { transform: translateX(120%); }
+    .cta-actions .button-primary { background: linear-gradient(135deg, rgba(154,255,239,.32), rgba(53,234,216,.14)); color: #efffff; border: 1px solid rgba(183,255,245,.72); box-shadow: 0 12px 30px rgba(17,217,202,.18), 0 0 0 4px rgba(53,234,216,.06), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -10px 24px rgba(2,49,58,.12); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .cta-actions .button-primary::after { content: "↗"; margin-left: 10px; font-size: 1.1rem; }
+    .cta-actions .button-primary:hover { transform: translateY(-3px); background: linear-gradient(135deg, rgba(154,255,239,.5), rgba(53,234,216,.22)); box-shadow: 0 18px 38px rgba(17,217,202,.3), 0 0 0 6px rgba(53,234,216,.1), inset 0 1px 0 rgba(255,255,255,.75); }
+    .cta-actions .button-secondary { color: #f2fffd; border: 1px solid rgba(157,255,243,.52); background: linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.035)); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), inset 0 -10px 24px rgba(2,49,58,.1), 0 8px 20px rgba(0,25,31,.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .cta-actions .button-secondary::after { content: "✉"; margin-left: 10px; color: #8cf5e7; font-size: .95rem; }
+    .cta-actions .button-secondary:hover { transform: translateY(-3px); border-color: #8cf5e7; background: linear-gradient(135deg, rgba(53,234,216,.22), rgba(255,255,255,.08)); box-shadow: 0 14px 30px rgba(0,25,31,.22), 0 0 0 4px rgba(53,234,216,.08); }
+    .cta-photo-label { position: absolute; z-index: 1; right: 24px; bottom: 22px; padding: 10px 14px; border: 1px solid rgba(154,255,241,.4); border-radius: 999px; background: rgba(3,56,65,.7); color: #fff; font-size: .76rem; font-weight: 800; backdrop-filter: blur(8px); }
+
+    @media (max-width: 760px) {
+      .cta-band { display: grid; grid-template-columns: 1fr; gap: 0; padding: 0; width: 100vw; height: auto; min-height: 0; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); border-radius: 0; }
+      .cta-copy { padding: 30px 26px 24px; }
+      .cta-copy { width: 100%; }
+      .cta-support-photo { position: relative; inset: auto; min-height: 230px; height: 230px; border-radius: 0; clip-path: none; }
+      .cta-support-photo::after { background: linear-gradient(180deg, #075e67 0%, transparent 35%), linear-gradient(0deg, rgba(2,38,45,.35), transparent 50%); }
+    }
+
+    .coverage-banner {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      min-height: 132px;
+      padding: 26px 34px;
+      margin: 0 0 56px;
+      border: 1px solid rgba(102, 241, 229, 0.35);
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(2, 53, 61, 0.90), rgba(5, 100, 108, 0.72)), url("assets/img/coverage-city-banner.png") center / cover;
+      color: #fff;
+      box-shadow: 0 18px 36px rgba(4, 52, 58, 0.16);
+    }
+
+    .coverage-banner::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 55%, rgba(79, 239, 222, 0.14)); }
+    .coverage-icon, .coverage-copy, .coverage-action { position: relative; z-index: 1; }
+    .coverage-icon { display: grid; place-items: center; width: 66px; height: 66px; border: 2px solid #35ead8; border-radius: 50%; color: #35ead8; font-size: 2rem; }
+    .coverage-copy small { display: block; margin-bottom: 5px; color: #70f2e5; font-size: .66rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .coverage-copy h3 { margin: 0; color: #fff; font-size: clamp(1.25rem, 2.4vw, 2rem); line-height: 1.05; }
+    .coverage-copy p { margin: 7px 0 0; color: rgba(255,255,255,.78); font-size: .88rem; }
+    .coverage-action { white-space: nowrap; }
+    .coverage-action .button-primary { background: #35ead8; color: #063e46; }
+
+    @media (max-width: 760px) {
+      .coverage-banner { grid-template-columns: auto 1fr; gap: 16px; padding: 22px; }
+      .coverage-action { grid-column: 1 / -1; }
+      .coverage-action .button-primary { width: 100%; }
     }
 
     .footer {
@@ -2856,9 +2954,13 @@
     }
 
     .footer-grid {
-      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      grid-template-columns: 1.35fr .8fr 1fr .9fr;
       align-items: start;
     }
+
+    .footer-socials { display: flex; gap: 9px; margin-top: 20px; }
+    .footer-socials a { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(7,93,102,.2); border-radius: 50%; color: #075d66; background: rgba(216,247,246,.55); font-weight: 900; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .footer-socials a:hover { transform: translateY(-2px); background: #d8f7f6; box-shadow: 0 8px 18px rgba(4,52,58,.12); }
 
     .footer-links {
       display: grid;
@@ -3636,7 +3738,7 @@
           </div>
           <div class="support-visual" aria-hidden="true">
             <div class="support-panel">
-              <img class="support-image" src="assets/img/support-vip-visual.png" alt="Ilustração do atendimento VIP Telecom" loading="lazy" decoding="async">
+            <img class="support-image" src="assets/img/support-vip-visual.png" alt="Ilustração do atendimento VIP Telecom" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -3865,16 +3967,35 @@
       </div>
     </section>
 
+    <section class="container" aria-label="Consulta de cobertura">
+      <div class="coverage-banner">
+        <div class="coverage-icon" aria-hidden="true">⌖</div>
+        <div class="coverage-copy">
+          <small>Sua cidade mais conectada</small>
+          <h3>Consulte a cobertura na sua cidade</h3>
+          <p>Descubra se a VIP Telecom já está na sua região e venha para uma internet de verdade.</p>
+        </div>
+        <div class="coverage-action">
+          <a class="button-primary" href="https://wa.me/558002009056?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20a%20cobertura%20da%20VIP%20Telecom%20na%20minha%20cidade." target="_blank" rel="noopener noreferrer">Consultar agora&nbsp; →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="depoimentos">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head instagram-section-head">
           <div>
-            <span class="eyebrow">Prova social</span>
-            <h2 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3.2rem);">Depoimentos mais curtos e com leitura mais limpa.</h2>
+            <span class="eyebrow">Siga a VIP Telecom</span>
+            <h2 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3.2rem);">Conexão que também acontece fora da tela.</h2>
           </div>
           <p>
-            A prova social continua presente, mas agora com menos volume para não tirar o foco dos benefícios principais.
+            Acompanhe novidades, bastidores, campanhas e histórias da comunidade VIP Telecom.
           </p>
+          <a class="instagram-follow" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer">◎ @viptelecomoficial ↗</a>
+        </div>
+        <div class="instagram-grid" aria-label="Publicações da VIP Telecom no Instagram">
+          <a class="instagram-post" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer"><img src="assets/img/instagram-vip-grid-01.png" alt="Publicações da VIP Telecom sobre comunidade e clientes" loading="lazy"></a>
+          <a class="instagram-post" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer"><img src="assets/img/instagram-vip-grid-02.png" alt="Publicações da VIP Telecom sobre dicas e equipe" loading="lazy"></a>
         </div>
         <div class="testimonial-grid">
           <article class="testimonial">
@@ -3906,13 +4027,18 @@
         </div>
 
         <div class="cta-band" id="contato">
-          <div>
+          <div class="cta-copy">
             <span class="eyebrow">Proximo passo</span>
             <h3 style="margin-top: 16px;">Fale com a equipe e encontre a melhor opção para sua necessidade.</h3>
+            <p>Fale com uma pessoa da nossa equipe, consulte a cobertura e descubra a opção ideal para sua rotina.</p>
+            <div class="cta-actions">
+              <a class="button-primary" href="https://wa.me/558002009056?text=Ola%2C%20vim%20pelo%20site%20da%20VIP%20Telecom%20e%20quero%20atendimento%20pelo%20Opa%20Suite." target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+              <a class="button-secondary" href="mailto:contato@viptelecom.com.br">Enviar e-mail</a>
+            </div>
           </div>
-          <div style="display:flex; flex-wrap:wrap; gap:14px;">
-            <a class="button-primary" href="https://wa.me/558002009056?text=Ola%2C%20vim%20pelo%20site%20da%20VIP%20Telecom%20e%20quero%20atendimento%20pelo%20Opa%20Suite." target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
-            <a class="button-secondary" href="mailto:contato@viptelecom.com.br">Enviar e-mail</a>
+          <div class="cta-support-photo">
+            <img src="assets/img/support-vip-visual-clean.png" alt="Equipe de atendimento da VIP Telecom" loading="lazy" decoding="async">
+            <span class="cta-photo-label">Atendimento humano e próximo</span>
           </div>
         </div>
       </div>
@@ -3927,16 +4053,20 @@
             <img class="brand-logo" src="assets/img/logo-vip-telecom-teal.png" alt="VIP Telecom">
           </a>
           <p style="margin-top: 18px;">
-            Internet com foco em estabilidade, benefícios claros e atendimento mais consultivo para casa e empresa.
+            Internet que conecta sua casa, seu negócio e seus melhores momentos.
           </p>
+          <div class="footer-socials" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da VIP Telecom">◎</a>
+            <a href="https://wa.me/558002009056?text=Ola%2C%20vim%20pelo%20site%20da%20VIP%20Telecom%20e%20quero%20atendimento." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da VIP Telecom">◌</a>
+          </div>
         </div>
         <div>
-          <h3 style="font-size:1.02rem; margin-bottom:14px;">Secoes</h3>
+          <h3 style="font-size:1.02rem; margin-bottom:14px;">Seções</h3>
           <div class="footer-links">
             <a href="#beneficios">Benefícios</a>
             <a href="#solucoes">Diferenciais</a>
             <a href="planos.html">Planos</a>
-            <a href="#depoimentos">Depoimentos</a>
+            <a href="#depoimentos">Instagram</a>
           </div>
         </div>
         <div>
@@ -3944,13 +4074,22 @@
           <div class="footer-links">
             <a href="mailto:contato@viptelecom.com.br">contato@viptelecom.com.br</a>
             <a href="https://wa.me/558002009056?text=Ola%2C%20vim%20pelo%20site%20da%20VIP%20Telecom%20e%20quero%20atendimento%20pelo%20Opa%20Suite." target="_blank" rel="noopener noreferrer">WhatsApp comercial</a>
-            <a href="#top">Voltar ao inicio</a>
+            <a href="https://agilitytelecomudp.com.br/central_assinante_web/login" target="_blank" rel="noopener noreferrer">Área do assinante</a>
+            <a href="#contato">Consultar cobertura</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:1.02rem; margin-bottom:14px;">Atendimento</h3>
+          <div class="footer-links">
+            <span>Suporte próximo e humanizado</span>
+            <span>Casa, comércio e empresa</span>
+            <a href="#top">Voltar ao início ↑</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Home mais leve, clara e focada em benefícios.</span>
-        <span>VIP Telecom - conceito visual 2026</span>
+        <span>Conectando pessoas, negócios e oportunidades.</span>
+        <span>© 2026 VIP Telecom. Todos os direitos reservados.</span>
       </div>
     </div>
   </footer>

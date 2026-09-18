@@ -37,6 +37,8 @@
         radial-gradient(circle at 15% 12%, rgba(255,255,255,.78), transparent 18%),
         radial-gradient(circle at 88% 14%, rgba(255,139,33,.22), transparent 20%),
         linear-gradient(180deg, var(--bg-a) 0%, #ffd590 44%, var(--bg-b) 100%);
+      background-size: auto, auto, 180% 180%;
+      animation: backgroundDrift 16s ease-in-out infinite alternate;
     }
     body::before, body::after{content:"";position:fixed;pointer-events:none;border-radius:999px;filter:blur(12px);opacity:.6}
     body::before{width:300px;height:300px;left:-100px;top:-90px;background:rgba(255,255,255,.34)}
@@ -51,7 +53,7 @@
     .back-link{display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 16px;border-radius:999px;background:rgba(159,75,0,.08);border:1px solid rgba(159,75,0,.12);font-size:.88rem;font-weight:800;transition:transform .2s ease, background .2s ease}
     .back-link:hover{transform:translateY(-1px);background:rgba(159,75,0,.12)}
     .hero{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(340px,.96fr);gap:28px;align-items:center;padding:16px 0 28px}
-    .hero-copy{display:grid;gap:22px;padding:12px 0}
+    .hero-copy{display:grid;gap:22px;padding:12px 0;animation:riseIn .75s both}
     .eyebrow{width:fit-content;padding:10px 16px;border-radius:999px;background:rgba(159,75,0,.08);border:1px solid rgba(159,75,0,.12);font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
     h1{margin:0;max-width:12ch;font-family:"Sora",sans-serif;font-size:clamp(3rem,5.7vw,5.3rem);line-height:.94;letter-spacing:-.06em;text-wrap:balance}
     .hero-copy p{margin:0;max-width:54ch;font-size:clamp(1rem,1.45vw,1.15rem);line-height:1.6;color:var(--muted)}
@@ -61,7 +63,8 @@
     .cta.secondary{background:rgba(255,255,255,.66);border:1px solid rgba(159,75,0,.12);color:var(--accent)}
     .cta:hover{transform:translateY(-1px)}
     .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .service-card{display:grid;gap:12px;justify-items:center;padding:18px 16px 16px;min-height:108px;border-radius:22px;background:rgba(255,255,255,.9);color:var(--text);border:1px solid rgba(159,75,0,.12);box-shadow:0 16px 30px rgba(124,59,0,.12)}
+    .service-card{display:grid;gap:12px;justify-items:center;padding:18px 16px 16px;min-height:108px;border-radius:22px;background:rgba(255,255,255,.9);color:var(--text);border:1px solid rgba(159,75,0,.12);box-shadow:0 16px 30px rgba(124,59,0,.12);transition:transform .25s ease,box-shadow .25s ease}
+    .service-card:hover{transform:translateY(-7px) rotate(-1deg);box-shadow:0 24px 38px rgba(124,59,0,.18)}
     .service-card .icon{width:52px;height:52px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;color:#fff}
     .service-card svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
     .service-card span{font-weight:800;font-size:.95rem}
@@ -69,11 +72,15 @@
     .icon.red{background:linear-gradient(180deg,#ff6d4a,#d92b1a)}
     .icon.green{background:linear-gradient(180deg,#35d27d,#119352)}
     .icon.pink{background:linear-gradient(180deg,#f44d98,#d81d74)}
-    .visual{position:relative;min-height:620px;display:grid;place-items:center}
-    .mockup-stage{position:relative;width:min(100%,640px);aspect-ratio:.95;display:grid;place-items:center;filter:drop-shadow(0 26px 38px rgba(124,59,0,.2))}
+    .visual{position:relative;min-height:620px;display:grid;place-items:center;animation:riseIn .9s .12s both}
+    .visual::before,.visual::after{content:"";position:absolute;border-radius:999px;pointer-events:none;filter:blur(4px)}
+    .visual::before{width:250px;height:250px;right:10%;top:16%;background:rgba(255,255,255,.3);animation:pulseGlow 5s ease-in-out infinite}
+    .visual::after{width:180px;height:180px;left:5%;bottom:12%;background:rgba(255,139,33,.2);animation:pulseGlow 6s 1s ease-in-out infinite}
+    .mockup-stage{position:relative;width:min(100%,640px);aspect-ratio:.95;display:grid;place-items:center;filter:drop-shadow(0 26px 38px rgba(124,59,0,.2));animation:stageFloat 6s ease-in-out infinite}
     .screen{position:absolute;inset:16% 6% 18% 20%;border-radius:18px;background:linear-gradient(180deg, rgba(52,26,12,.96), rgba(28,15,7,.98));border:2px solid rgba(255,255,255,.16);box-shadow:0 22px 40px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.12);overflow:hidden}
     .screen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 20%, rgba(255,139,33,.22), transparent 26%), radial-gradient(circle at 88% 22%, rgba(255,255,255,.08), transparent 18%), linear-gradient(135deg, rgba(255,177,59,.2), transparent 26%);opacity:.95}
     .screen-topbar{position:absolute;inset:0 0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+    .screen-logo{position:absolute;right:24px;top:70px;width:112px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));opacity:.95}
     .screen-banner{position:absolute;left:22px;top:86px;width:min(56%,260px);display:grid;gap:12px}
     .screen-tag{width:fit-content;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.13);font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
     .screen-title{margin:0;font-family:"Sora",sans-serif;font-size:clamp(1.65rem,3vw,2.5rem);line-height:.95;letter-spacing:-.05em;text-wrap:balance}
@@ -84,7 +91,8 @@
     .support-card{flex:1;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.08)}
     .support-grid{position:absolute;inset:56px 16px 12px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
     .support-thumb{border-radius:9px;background:linear-gradient(135deg,rgba(255,177,59,.92),rgba(159,75,0,.92));min-height:38px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-    .device-float{position:absolute;border-radius:18px;background:rgba(255,255,255,.97);color:#12212a;box-shadow:0 20px 34px rgba(124,59,0,.16);border:1px solid rgba(255,255,255,.72);overflow:hidden}
+    .device-float{position:absolute;border-radius:18px;background:rgba(255,255,255,.97);color:#12212a;box-shadow:0 20px 34px rgba(124,59,0,.16);border:1px solid rgba(255,255,255,.72);overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}
+    .mockup-stage:hover .device-float{box-shadow:0 28px 46px rgba(124,59,0,.24)}
     .device-float.laptop{left:4%;bottom:9%;width:42%;aspect-ratio:1.23;transform:rotate(-4deg);z-index:2}
     .device-float.phone{right:0;bottom:7%;width:18%;aspect-ratio:.58;border-radius:22px;transform:rotate(1deg);z-index:3}
     .device-float.tablet{right:13%;top:9%;width:26%;aspect-ratio:.72;border-radius:24px;transform:rotate(6deg);z-index:1}
@@ -100,18 +108,50 @@
     .section-title h2{margin:0;font-family:"Sora",sans-serif;font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.05;letter-spacing:-.04em}
     .section-title p{margin:0;max-width:48ch;color:var(--muted);line-height:1.55}
     .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .step{padding:18px;border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(159,75,0,.12);backdrop-filter:blur(10px);box-shadow:0 16px 30px rgba(124,59,0,.1)}
+    .step{padding:18px;border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(159,75,0,.12);backdrop-filter:blur(10px);box-shadow:0 16px 30px rgba(124,59,0,.1);transition:transform .25s ease,box-shadow .25s ease}
+    .step:hover{transform:translateY(-6px);box-shadow:0 24px 40px rgba(124,59,0,.16)}
     .step .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;margin-bottom:14px;background:rgba(159,75,0,.08);font-family:"Sora",sans-serif;font-weight:800;color:var(--accent)}
     .step h3{margin:0 0 8px;font-family:"Sora",sans-serif;font-size:1.05rem}
     .step p{margin:0;line-height:1.58;color:var(--muted)}
     .partner-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 0 20px}
     .partner-card{
-      padding:18px;border-radius:24px;background:rgba(255,255,255,.84);border:1px solid rgba(159,75,0,.12);box-shadow:0 16px 30px rgba(124,59,0,.1)
+      padding:18px;border-radius:24px;background:rgba(255,255,255,.84);border:1px solid rgba(159,75,0,.12);box-shadow:0 16px 30px rgba(124,59,0,.1);transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;position:relative
     }
+    .partner-card::before{content:"";display:block;height:88px;margin:-18px -18px 16px;background:linear-gradient(135deg,rgba(159,75,0,.1),rgba(255,139,33,.25)),var(--partner-image) center/cover;filter:saturate(.9);transition:transform .45s ease}
+    .partner-card:hover{transform:translateY(-6px);box-shadow:0 24px 40px rgba(124,59,0,.16)}
+    .partner-card:hover::before{transform:scale(1.06)}
+    .partner-card:nth-child(1){--partner-image:url("assets/img/benefit-v6.jpg")}
+    .partner-card:nth-child(2){--partner-image:url("assets/img/benefit-exa.jpg")}
+    .partner-card:nth-child(3){--partner-image:url("assets/img/benefit-fix.jpg")}
+    .partner-card:nth-child(4){--partner-image:url("assets/img/benefit-max.jpg")}
     .partner-card strong{display:block;font-family:"Sora",sans-serif;font-size:1rem;margin-bottom:8px;color:var(--accent)}
     .partner-card span{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(255,139,33,.12);font-size:.76rem;font-weight:900;color:var(--accent);margin-bottom:10px}
     .partner-card p{margin:0;color:var(--muted);line-height:1.55}
     .footer{padding:8px 0 24px;color:rgba(52,33,16,.72);text-align:center;font-size:.88rem}
+    /* Direção visual do benefício: cidade conectada + destaque laranja. */
+    body{
+      color:#f7fffd;
+      background:
+        linear-gradient(180deg,rgba(2,45,52,.25),rgba(2,45,52,.7)),
+        url("assets/img/coverage-city-banner.png") center top/cover fixed,
+        linear-gradient(180deg,#073b43 0%,#075b63 52%,#f29a36 100%);
+    }
+    .topbar-inner{border-color:rgba(216,247,246,.24);background:rgba(3,52,58,.68);box-shadow:0 14px 34px rgba(2,39,44,.24)}
+    .brand{color:#f7fffd}.brand-mark{background:linear-gradient(180deg,#c8fbf0,#4dd4c5);border-color:rgba(216,247,246,.34)}.brand-mark svg{stroke:#064b54}
+    .back-link{background:rgba(216,247,246,.13);border-color:rgba(216,247,246,.25);color:#f7fffd}.back-link:hover{background:rgba(216,247,246,.2)}
+    .hero{min-height:650px;padding:54px 42px 58px;border-radius:34px;background:linear-gradient(90deg,rgba(3,52,58,.94),rgba(3,52,58,.58) 52%,rgba(3,52,58,.18)),url("assets/img/coverage-city-banner.png") center/cover;box-shadow:0 26px 60px rgba(2,39,44,.34)}
+    .eyebrow{background:rgba(216,247,246,.12);border-color:rgba(216,247,246,.22);color:#b9fff2}.hero-copy p{color:rgba(247,255,253,.86)}
+    .cta.primary{background:linear-gradient(180deg,#ffad48,#db6412);color:#fff;box-shadow:0 18px 30px rgba(214,91,14,.3)}.cta.secondary{background:rgba(216,247,246,.14);border-color:rgba(216,247,246,.3);color:#f7fffd}
+    .service-card{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.24);color:#f7fffd;backdrop-filter:blur(14px);box-shadow:0 16px 30px rgba(2,39,44,.2),inset 0 1px 0 rgba(255,255,255,.2)}
+    .section-title p,.step p,.partner-card p{color:rgba(247,255,253,.8)}.section-title h2{color:#fff}
+    .step,.partner-card{background:rgba(3,52,58,.72);border-color:rgba(216,247,246,.18);color:#f7fffd;box-shadow:0 16px 30px rgba(2,39,44,.24)}
+    .step .num{background:rgba(216,247,246,.13);color:#a7f6e8}.partner-card strong{color:#ffd08c}.partner-card span{background:rgba(255,166,68,.18);color:#ffd08c}
+    .footer{color:rgba(247,255,253,.72)}
+    @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    @keyframes stageFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(.5deg)}}
+    @keyframes pulseGlow{0%,100%{opacity:.45;transform:scale(.92)}50%{opacity:.85;transform:scale(1.08)}}
+    @keyframes backgroundDrift{from{background-position:center top}to{background-position:70% top}}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
     @media (max-width:1100px){
       .hero{grid-template-columns:1fr}
       .visual{min-height:560px}
@@ -155,8 +195,8 @@
     <section class="shell hero">
       <div class="hero-copy">
         <div class="eyebrow">Clube de descontos</div>
-        <h1>VIP Club com vantagens locais</h1>
-        <p>Uma rede de lojas parceiras cadastradas para o cliente VIP pagar menos em compras e serviços da cidade, com foco em economia no dia a dia.</p>
+        <h1>Vantagens que conectam você à sua cidade.</h1>
+        <p>O VIP Club aproxima clientes e parceiros locais com descontos, ofertas e experiências especiais para aproveitar melhor cada momento.</p>
         <div class="cta-row">
           <a class="cta primary" href="planos.html#planos">Ver planos</a>
           <a class="cta secondary" href="https://wa.me/558002009056?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20VIP%20Club" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
@@ -172,6 +212,7 @@
         <div class="mockup-stage">
           <div class="screen" aria-hidden="true">
             <div class="screen-topbar"><span>vip club</span><span>parceiros / cupons / economia</span></div>
+            <img class="screen-logo" src="assets/img/vip-club-logo.png" alt="">
             <div class="screen-banner">
               <div class="screen-tag">Economia local</div>
               <h2 class="screen-title">Desconto de verdade nas lojas da sua cidade.</h2>
