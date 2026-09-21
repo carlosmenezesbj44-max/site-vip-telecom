@@ -30,12 +30,16 @@
     .about-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(118deg, rgba(219,255,250,.16) 0%, transparent 22%, transparent 66%, rgba(219,255,250,.1) 100%); border: 1px solid rgba(218,255,251,.34); box-shadow: inset 0 1px 0 rgba(255,255,255,.3), inset 0 -1px 0 rgba(0,52,58,.18); pointer-events: none; }
     .about-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,100,111,.48), rgba(0,119,131,.38)); -webkit-backdrop-filter: blur(3px) saturate(1.08); backdrop-filter: blur(3px) saturate(1.08); pointer-events: none; }
     .about-hero-content { position: relative; z-index: 1; max-width: 920px; padding: 76px 20px; text-align: center; }
+    .glass-vip-mark { position: relative; width: min(270px, 76vw); margin: 0 auto 24px; isolation: isolate; }
+    .glass-vip-mark::before { content: ""; position: absolute; z-index: -1; inset: 22% 8%; border-radius: 50%; background: radial-gradient(ellipse, rgba(104,255,235,.42), rgba(73,242,208,.12) 45%, transparent 72%); filter: blur(18px); }
+    .glass-vip-mark::after { content: none; }
+    .glass-vip-mark img { display: block; position: relative; z-index: 0; width: 100%; height: auto; opacity: 1; object-fit: contain; filter: drop-shadow(0 0 8px rgba(105,255,235,.24)) drop-shadow(0 12px 24px rgba(0,30,37,.24)); }
     .eyebrow { display: inline-flex; padding: 8px 12px; border: 1px solid rgba(154,255,240,.42); border-radius: 999px; color: #d7fffa; background: rgba(4,52,58,.22); font-size: .72rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
     .about-hero h2 { margin: 24px 0 0; font-family: "Sora", sans-serif; font-size: clamp(2.5rem, 6vw, 5.6rem); line-height: .94; letter-spacing: -.08em; }
     .about-hero h2 span { color: #62ffe0; }
-    .about-hero h2.typewriter-line { display: block; width: 100%; margin-top: 26px; font-family: "Manrope", sans-serif; font-size: clamp(.78rem, 1.55vw, 1.3rem); font-weight: 500; letter-spacing: -.035em; white-space: nowrap; }
+    .about-hero h2.typewriter-line { display: block; width: 100%; min-height: 1.4em; margin-top: 26px; font-family: "Manrope", sans-serif; font-size: clamp(.9rem, 1.9vw, 1.65rem); font-weight: 500; letter-spacing: -.035em; white-space: nowrap; }
     .typewriter-line strong { color: #fff; font-weight: 800; }
-    .typewriter-word { color: #62ffe0; }
+    .typewriter-word { display: inline-block; width: 22ch; color: #62ffe0; text-align: left; }
     .typewriter-cursor { display: inline-block; width: 2px; height: 1.05em; margin-left: 7px; vertical-align: -.12em; background: #d9fffb; animation: cursorBlink .82s steps(1, end) infinite; }
     @keyframes cursorBlink { 50% { opacity: 0; } }
     .about-hero p { max-width: 760px; margin: 26px auto 0; color: rgba(238,255,252,.86); font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.65; }
@@ -43,7 +47,7 @@
     .story-card { padding: 26px; border: 1px solid rgba(7,93,102,.12); border-radius: 22px; background: rgba(255,255,255,.75); box-shadow: 0 18px 36px rgba(4,52,58,.07); }
     .story-card strong { display: block; color: #087e87; font-family: "Sora", sans-serif; font-size: 1.1rem; }
     .story-card p { margin: 10px 0 0; color: rgba(23,59,49,.72); font-size: .9rem; line-height: 1.6; }
-    @media (max-width: 760px) { .nav { min-height: 70px; } .nav-links { gap: 10px; } .nav-links a:not(.back-link) { display: none; } .page-heading { min-height: 72px; } .about-hero { min-height: 480px; } .about-hero-content { padding: 56px 20px; } .about-hero h2 { font-size: clamp(2.45rem, 12vw, 4rem); } .about-hero h2.typewriter-line { white-space: normal; font-size: clamp(.82rem, 3.2vw, 1.1rem); } .story { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .nav { min-height: 70px; } .nav-links { gap: 10px; } .nav-links a:not(.back-link) { display: none; } .page-heading { min-height: 72px; } .about-hero { min-height: 480px; } .about-hero-content { padding: 56px 20px; } .about-hero h2 { font-size: clamp(2.45rem, 12vw, 4rem); } .about-hero h2.typewriter-line { min-height: 2.8em; white-space: normal; font-size: clamp(.82rem, 3.2vw, 1.1rem); } .typewriter-word { width: auto; } .story { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -65,6 +69,7 @@
       </div>
       <section class="about-hero" aria-labelledby="about-title">
         <div class="about-hero-content">
+          <div class="glass-vip-mark" aria-hidden="true"><img src="assets/img/logo-vip-telecom-white.png" alt=""></div>
           <span class="eyebrow">Sobre a VIP Telecom</span>
           <h2 id="about-title" class="typewriter-line"><strong>SOMOS APAIXONADOS POR</strong> <span class="typewriter-word" data-typewriter>CONECTAR PESSOAS</span><span class="typewriter-cursor" aria-hidden="true"></span></h2>
         </div>
