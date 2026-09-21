@@ -954,6 +954,449 @@
       letter-spacing: -0.03em;
     }
 
+    .app-section {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .about-section {
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: clamp(28px, 6vw, 84px);
+      align-items: center;
+      padding: clamp(30px, 5vw, 64px);
+      border: 1px solid rgba(7, 93, 102, 0.14);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(216, 247, 246, 0.82), rgba(255, 255, 255, 0.88)),
+        radial-gradient(circle at 84% 18%, rgba(73, 242, 208, 0.18), transparent 32%);
+      box-shadow: 0 24px 58px rgba(4, 52, 58, 0.1);
+    }
+
+    .about-copy h2 {
+      max-width: 12ch;
+      margin-top: 18px;
+      color: #123f3b;
+      font-size: clamp(2.3rem, 4.7vw, 4.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+    }
+
+    .about-copy h2 span {
+      color: #0a9498;
+    }
+
+    .about-copy p {
+      max-width: 56ch;
+      margin: 22px 0 0;
+      color: rgba(23, 59, 49, 0.74);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .about-points li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #174942;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .about-points li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      flex: 0 0 9px;
+      border-radius: 50%;
+      background: #0ccfc2;
+      box-shadow: 0 0 0 5px rgba(12, 207, 194, 0.12);
+    }
+
+    .about-mark {
+      position: relative;
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(73, 242, 208, 0.3), transparent 28%),
+        linear-gradient(145deg, #075d66, #063a43);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 20px 40px rgba(4, 52, 58, 0.16);
+    }
+
+    .about-mark::before,
+    .about-mark::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(123, 244, 226, 0.28);
+      border-radius: 50%;
+    }
+
+    .about-mark::before { width: 190px; height: 190px; }
+    .about-mark::after { width: 270px; height: 270px; }
+
+    .about-mark strong {
+      position: relative;
+      z-index: 1;
+      color: #f3fffd;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      letter-spacing: -0.08em;
+    }
+
+    @media (max-width: 820px) {
+      .about-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .about-mark {
+        min-height: 190px;
+      }
+    }
+
+    .app-section > .container {
+      width: 100%;
+      max-width: none;
+    }
+
+    .app-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(310px, 0.92fr);
+      align-items: center;
+      gap: clamp(30px, 6vw, 92px);
+      min-height: 560px;
+      overflow: hidden;
+      padding: 74px max(32px, calc((100vw - 1280px) / 2));
+      border: 0;
+      border-radius: 0;
+      color: #f1fffc;
+      background:
+        linear-gradient(135deg, rgba(157, 255, 241, 0.2), transparent 34%),
+        linear-gradient(145deg, rgba(0, 116, 123, 0.86), rgba(0, 77, 84, 0.76));
+      -webkit-backdrop-filter: blur(18px) saturate(1.18);
+      backdrop-filter: blur(18px) saturate(1.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.24),
+        inset 0 -1px 0 rgba(0, 35, 40, 0.16),
+        0 28px 72px rgba(4, 52, 58, 0.22);
+      isolation: isolate;
+    }
+
+    .app-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background: none;
+    }
+
+    .app-panel::after {
+      content: none;
+    }
+
+    .app-copy {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      max-width: 620px;
+    }
+
+    .app-copy .eyebrow {
+      color: #b9fff2;
+      border-color: rgba(154, 255, 240, 0.26);
+      background: rgba(88, 226, 210, 0.1);
+    }
+
+    .app-copy h2 {
+      max-width: 11ch;
+      margin-top: 22px;
+      color: #f7fffd;
+      font-size: clamp(2.4rem, 5.5vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      text-wrap: balance;
+    }
+
+    .app-copy h2 span {
+      color: #67eed6;
+    }
+
+    .app-copy > p {
+      max-width: 50ch;
+      margin: 24px 0 0;
+      color: rgba(231, 255, 250, 0.78);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+
+    .app-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 26px 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .app-capabilities li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 13px 8px 10px;
+      border: 1px solid rgba(160, 255, 240, 0.22);
+      border-radius: 12px;
+      color: rgba(239, 255, 252, 0.9);
+      background: rgba(255, 255, 255, 0.075);
+      font-size: 0.79rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .app-capabilities li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: #b8ff5f;
+      box-shadow: 0 0 0 5px rgba(184, 255, 95, 0.1), 0 0 16px rgba(184, 255, 95, 0.62);
+    }
+
+    .app-cta {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 52px;
+      gap: 14px;
+      padding: 0 16px 0 23px;
+      border: 1px solid rgba(214, 255, 251, 0.86);
+      border-radius: 14px;
+      color: #03444b;
+      background: linear-gradient(135deg, #e4fffc 0%, #a8eee9 52%, #72d8d4 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        0 0 0 4px rgba(125, 239, 231, 0.1),
+        0 14px 34px rgba(43, 186, 190, 0.28);
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+
+    .app-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(105deg, transparent 22%, rgba(255, 255, 255, 0.62) 48%, transparent 72%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .app-cta span {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border: 1px solid rgba(4, 56, 63, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.28);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .app-cta:hover {
+      color: #03444b;
+      filter: saturate(1.06) brightness(1.04);
+      transform: translateY(-3px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.75),
+        0 0 0 5px rgba(125, 239, 231, 0.12),
+        0 18px 42px rgba(43, 186, 190, 0.38);
+    }
+
+    .app-cta:hover::before {
+      transform: translateX(120%);
+    }
+
+    .app-cta:focus-visible {
+      color: #03444b;
+      outline: 3px solid #d5fffb;
+      outline-offset: 4px;
+      box-shadow: 0 0 0 7px rgba(125, 239, 231, 0.22), 0 18px 36px rgba(43, 186, 190, 0.34);
+    }
+
+    .app-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      min-height: 420px;
+    }
+
+    .app-visual::before {
+      content: "";
+      position: absolute;
+      width: min(88%, 420px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(112, 246, 224, 0.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 22px rgba(112, 246, 224, 0.045), 0 0 0 46px rgba(112, 246, 224, 0.028);
+    }
+
+    .app-image-frame {
+      position: relative;
+      width: min(100%, 332px);
+      margin: 0;
+      aspect-ratio: 332 / 445;
+      overflow: hidden;
+      border: 8px solid rgba(235, 255, 251, 0.9);
+      border-radius: 28px;
+      background: #eafaf7;
+      box-shadow: 0 30px 50px rgba(0, 21, 25, 0.34), 0 0 0 1px rgba(104, 255, 231, 0.5), 0 0 42px rgba(68, 236, 210, 0.2);
+      transform: rotate(3deg);
+    }
+
+    .app-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .app-status,
+    .app-label {
+      position: absolute;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(161, 255, 240, 0.3);
+      border-radius: 999px;
+      background: rgba(4, 48, 55, 0.82);
+      color: #ecfffb;
+      box-shadow: 0 14px 26px rgba(0, 21, 25, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .app-status {
+      top: 15%;
+      right: 1%;
+      padding: 9px 12px;
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .app-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #b8ff5f;
+      box-shadow: 0 0 12px rgba(184, 255, 95, 0.85);
+    }
+
+    .app-label {
+      right: 2%;
+      bottom: 13%;
+      padding: 10px 14px;
+      color: #bafff0;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+    }
+
+    @media (max-width: 820px) {
+      .app-panel {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+      }
+
+      .app-copy h2 {
+        max-width: 12ch;
+      }
+
+      .app-visual {
+        min-height: 390px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .proof-strip {
+        display: none;
+      }
+
+      .app-section {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .app-panel {
+        min-height: 0;
+        padding: 28px 22px 34px;
+        border-radius: 0;
+      }
+
+      .app-copy h2 {
+        margin-top: 18px;
+        font-size: clamp(2.35rem, 12vw, 3.5rem);
+      }
+
+      .app-copy > p {
+        font-size: 0.94rem;
+      }
+
+      .app-capabilities {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+
+      .app-capabilities li {
+        width: fit-content;
+      }
+
+      .app-cta {
+        width: 100%;
+      }
+
+      .app-visual {
+        min-height: 360px;
+      }
+
+      .app-image-frame {
+        width: min(86%, 300px);
+      }
+
+      .app-status {
+        top: 11%;
+        right: 0;
+      }
+
+      .app-label {
+        right: 0;
+        bottom: 10%;
+      }
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -3471,6 +3914,186 @@
     }
 
     @media (max-width: 560px) {
+      .about-section {
+        padding-top: 34px;
+        padding-bottom: 34px;
+      }
+
+      .about-panel {
+        gap: 22px;
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+
+      .about-copy h2 {
+        font-size: clamp(2.1rem, 10vw, 2.8rem);
+      }
+
+      .about-copy p {
+        margin-top: 16px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .about-points {
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .about-points li {
+        font-size: 0.78rem;
+      }
+
+      .about-mark {
+        min-height: 150px;
+      }
+
+      .plans-table {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        overflow: visible;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .plans-table::before {
+        display: none;
+      }
+
+      .plan-card,
+      .plan-card:last-child {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid rgba(7, 93, 102, 0.16);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 28px rgba(4, 52, 58, 0.1);
+      }
+
+      .plan-head {
+        height: 132px;
+        padding: 16px 8px 12px;
+      }
+
+      .plan-turbo-label {
+        font-size: 0.72rem;
+      }
+
+      .plan-speed-mark .speed-number {
+        font-size: 2.35rem;
+      }
+
+      .plan-speed-mark .speed-unit {
+        font-size: 0.78rem;
+      }
+
+      .plan-head span:not(.plan-turbo-label):not(.speed-number):not(.speed-unit) {
+        margin-top: 5px;
+        font-size: 0.62rem;
+      }
+
+      .plan-from,
+      .plan-card:first-child .plan-from {
+        margin-top: 14px;
+        font-size: 0.62rem;
+      }
+
+      .plan-price {
+        padding: 17px 8px 13px;
+      }
+
+      .plan-price small {
+        font-size: 0.78rem;
+      }
+
+      .plan-price strong {
+        font-size: 2.65rem;
+      }
+
+      .plan-price sup {
+        font-size: 0.78rem;
+      }
+
+      .plan-price span {
+        margin-top: 4px;
+        font-size: 0.68rem;
+      }
+
+      .plan-features {
+        display: none;
+      }
+
+      .plan-action {
+        width: calc(100% - 20px);
+        margin: 0 10px 12px;
+        min-height: 34px;
+        padding: 0 8px;
+        border-radius: 10px;
+        font-size: 0.72rem;
+      }
+
+      .plan-action::before {
+        width: 7px;
+        height: 7px;
+      }
+
+      .benefits-panel {
+        padding: 18px 16px;
+      }
+
+      .benefits-layout {
+        gap: 18px;
+      }
+
+      .benefits-copy {
+        gap: 12px;
+      }
+
+      .benefits-copy h2 {
+        max-width: 12ch;
+        font-size: clamp(2rem, 10vw, 2.65rem);
+        line-height: 0.94;
+      }
+
+      .benefits-copy p {
+        font-size: 0.88rem;
+        line-height: 1.52;
+      }
+
+      .benefits-cta {
+        width: auto;
+        min-height: 42px;
+        padding-inline: 17px;
+      }
+
+      .benefits-tiles {
+        gap: 8px;
+      }
+
+      .benefit-tile {
+        min-height: 108px;
+        padding: 13px 11px 12px;
+        gap: 9px;
+        border-radius: 14px;
+      }
+
+      .benefit-tile .tile-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+      }
+
+      .benefit-tile .tile-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .benefit-tile h3 {
+        font-size: 0.76rem;
+        line-height: 1.12;
+      }
+
       .benefits-video {
         width: 100%;
         min-width: 0;
@@ -3590,7 +4213,9 @@
       </a>
       <nav class="nav-links" aria-label="Navegacao principal">
         <a href="#top">Home</a>
+        <a href="sobre.html">Sobre</a>
         <a href="#beneficios">Benefícios</a>
+        <a href="#app">App VIP</a>
         <a href="#solucoes">Diferenciais</a>
         <a href="planos.html">Planos</a>
         <a href="#depoimentos">Depoimentos</a>
@@ -3721,6 +4346,33 @@
                 <h3>Internet para games</h3>
               </article>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section app-section" id="app" aria-labelledby="app-title">
+      <div class="container">
+        <div class="app-panel">
+          <div class="app-copy">
+            <span class="eyebrow">VIP NO SEU BOLSO</span>
+            <h2 id="app-title">Tudo da sua VIP em <span>um só lugar.</span></h2>
+            <p>
+              Acompanhe sua conexão, consulte faturas e informações do contrato, solicite suporte e fique sempre perto da VIP Telecom — tudo pelo app.
+            </p>
+            <ul class="app-capabilities" aria-label="O que você pode fazer no app VIP Telecom">
+              <li>Acompanhe sua conexão</li>
+              <li>Resolva pelo app</li>
+              <li>Tenha tudo à mão</li>
+            </ul>
+            <a class="button-primary app-cta" href="https://play.google.com/store/apps/details?id=com.r3r.viptelecom&amp;hl=pt_BR" target="_blank" rel="noopener noreferrer">Conheça o app <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="app-visual">
+            <span class="app-status">VIP NO SEU BOLSO</span>
+            <figure class="app-image-frame">
+              <img src="assets/img/vip-app-customer-app.png" alt="Cliente apresenta o aplicativo VIP Telecom aberto no celular" loading="lazy" decoding="async">
+            </figure>
+            <span class="app-label">APP VIP TELECOM</span>
           </div>
         </div>
       </div>
@@ -4077,6 +4729,7 @@
           <h3 style="font-size:1.02rem; margin-bottom:14px;">Seções</h3>
           <div class="footer-links">
             <a href="#beneficios">Benefícios</a>
+            <a href="#app">App VIP</a>
             <a href="#solucoes">Diferenciais</a>
             <a href="planos.html">Planos</a>
             <a href="#depoimentos">Instagram</a>
