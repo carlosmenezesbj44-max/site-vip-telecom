@@ -4469,6 +4469,65 @@
               }, 80);
             }, 0);
           });
+
+          // O OpaSuite pode manter uma conversa anterior aberta sem recriar o campo
+          // de mensagem. Detectamos esse estado vazio e reabrimos a sessão uma vez.
+          var opaRecoveryTimer = 0;
+          var opaRecoveryInProgress = false;
+          var opaLastRecoveryAt = 0;
+          var opaAnonymousAttempts = 0;
+
+          function visibleOpaChat() {
+            var chat = document.querySelector(".opa_chat");
+            return chat && chat.offsetParent !== null ? chat : null;
+          }
+
+          function hasOpaMessageField(chat) {
+            return Boolean(chat.querySelector("textarea, input:not([type='hidden']), [contenteditable='true']"));
+          }
+
+          function scheduleOpaRecovery(delay) {
+            window.clearTimeout(opaRecoveryTimer);
+            opaRecoveryTimer = window.setTimeout(recoverOpaChat, delay || 900);
+          }
+
+          function recoverOpaChat() {
+            var chat = visibleOpaChat();
+            if (!chat || hasOpaMessageField(chat) || opaRecoveryInProgress) {
+              if (chat && hasOpaMessageField(chat)) opaAnonymousAttempts = 0;
+              return;
+            }
+
+            var anonymousAccess = chat.querySelector(".sem-login");
+            if (anonymousAccess && opaAnonymousAttempts < 2) {
+              opaAnonymousAttempts += 1;
+              anonymousAccess.click();
+              scheduleOpaRecovery(1200);
+              return;
+            }
+
+            var now = Date.now();
+            if (now - opaLastRecoveryAt < 10000) return;
+
+            opaRecoveryInProgress = true;
+            opaLastRecoveryAt = now;
+            opaAnonymousAttempts = 0;
+
+            var closeButton = chat.querySelector(".opa_close");
+            if (closeButton) closeButton.click();
+
+            window.setTimeout(function () {
+              opa.estrutura.ico.click();
+              window.setTimeout(function () {
+                opaRecoveryInProgress = false;
+                scheduleOpaRecovery(1200);
+              }, 350);
+            }, 300);
+          }
+
+          new MutationObserver(function () {
+            scheduleOpaRecovery(900);
+          }).observe(document.body, { childList: true, subtree: true });
         }, 150);
       };
     })(window, document, "https://viptelecomfibra.opasuite.com.br", "script", "js", "opa", "/", ".", "6aa29193188b7b719f488ca2", `{"permitir_login_anonimo":"on","facebook_appid":"","google_credential":"","google_oauth":""}`);
