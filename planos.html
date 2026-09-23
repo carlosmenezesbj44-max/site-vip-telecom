@@ -2536,6 +2536,26 @@
       box-shadow: 0 12px 28px rgba(4, 52, 58, 0.08);
     }
 
+    .region-card.is-game {
+      background:
+        linear-gradient(180deg, rgba(3, 30, 42, 0.8), rgba(3, 24, 34, 0.92)),
+        url("assets/img/gamer-setup-background.png") center / cover;
+      border-color: rgba(100, 235, 255, 0.28);
+      box-shadow: 0 24px 58px rgba(2, 27, 40, 0.26), inset 0 1px 0 rgba(184, 255, 247, 0.18);
+    }
+
+    .region-card.is-game .region-head h2,
+    .region-card.is-game .region-head p,
+    .region-card.is-game .region-note span,
+    .region-card.is-game .region-note strong {
+      color: #efffff;
+    }
+
+    .region-card.is-game .region-note {
+      border-color: rgba(129, 241, 255, 0.22);
+      background: rgba(4, 46, 58, 0.58);
+    }
+
     .region-card::before {
       background: linear-gradient(90deg, rgba(7, 93, 102, 0.035) 1px, transparent 1px), linear-gradient(rgba(7, 93, 102, 0.035) 1px, transparent 1px);
       background-size: 56px 56px, 56px 56px;
@@ -3648,6 +3668,264 @@
       }
     }
   </style>
+  <style id="game-background-iteration">
+    /* Game mode: an active energy field that keeps the plan card in focus. */
+    .region-card.is-game {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 18px 18px 24px;
+      border: 1px solid rgba(97, 239, 229, 0.26);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse 36% 54% at 50% 72%, rgba(72, 243, 231, 0.34), transparent 68%),
+        radial-gradient(ellipse 34% 38% at 17% 20%, rgba(42, 190, 214, 0.20), transparent 74%),
+        radial-gradient(ellipse 28% 42% at 88% 26%, rgba(153, 108, 255, 0.16), transparent 72%),
+        linear-gradient(180deg, rgba(2, 61, 73, 0.98) 0%, rgba(3, 42, 56, 0.98) 50%, rgba(4, 30, 47, 0.99) 100%);
+      background-image:
+        linear-gradient(180deg, rgba(2, 36, 48, 0.64), rgba(3, 28, 43, 0.72)),
+        url("assets/img/gamer-setup-background.png");
+      background-position: center, center;
+      background-size: cover, cover;
+      background-blend-mode: normal, normal;
+      box-shadow:
+        0 28px 70px rgba(2, 33, 52, 0.30),
+        inset 0 1px 0 rgba(208, 255, 250, 0.2),
+        inset 0 -1px 0 rgba(92, 224, 255, 0.14);
+    }
+
+    .region-card.is-game::before,
+    .region-card.is-game::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .region-card.is-game::before {
+      z-index: 0;
+      background:
+        linear-gradient(135deg, rgba(11, 110, 129, 0.48), transparent 34%, rgba(116, 78, 197, 0.16) 74%, transparent),
+        url("assets/img/gamer-setup-background.png") center / cover no-repeat;
+      background-blend-mode: normal, normal;
+      opacity: 0.18;
+      mix-blend-mode: normal;
+      animation: game-ambient-drift 16s ease-in-out infinite alternate;
+    }
+
+    .region-card.is-game::after {
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 42% 28% at 50% 65%, rgba(95, 255, 243, 0.26), transparent 72%),
+        radial-gradient(ellipse 28% 24% at 84% 22%, rgba(185, 134, 255, 0.16), transparent 72%);
+      opacity: 0.7;
+      mask-image: linear-gradient(180deg, transparent 0, #000 15%, #000 86%, transparent 100%);
+    }
+
+    .region-card.is-game > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .region-card.is-game .region-network-panel {
+      border-color: rgba(111, 239, 232, 0.24);
+      background:
+        radial-gradient(circle at 50% 100%, rgba(87, 255, 239, 0.22), transparent 38%),
+        linear-gradient(118deg, rgba(4, 93, 109, 0.78), rgba(7, 78, 96, 0.58) 52%, rgba(31, 52, 103, 0.62));
+      box-shadow:
+        0 18px 36px rgba(1, 28, 49, 0.22),
+        inset 0 1px 0 rgba(221, 255, 251, 0.18);
+    }
+
+    .region-card.is-game .region-network-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(112deg, transparent 25%, rgba(99, 253, 241, 0.17) 49%, transparent 51%),
+        radial-gradient(circle at 78% 15%, rgba(178, 130, 255, 0.24), transparent 20%);
+      background-size: 180% 100%, auto;
+      opacity: 0.7;
+      animation: game-scan 12s linear infinite;
+    }
+
+    .region-card.is-game .region-network-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .region-card.is-game .region-primary,
+    .region-card.is-game .region-data {
+      background-color: transparent;
+    }
+
+    .region-card.is-game .region-data {
+      background:
+        linear-gradient(180deg, rgba(1, 33, 47, 0.08), rgba(1, 24, 42, 0.24)),
+        radial-gradient(circle at 50% 0%, rgba(102, 251, 239, 0.18), transparent 44%);
+      border-left-color: rgba(156, 247, 239, 0.2);
+    }
+
+    .region-card.is-game .region-note {
+      border-top-color: rgba(96, 237, 231, 0.22);
+      border-bottom-color: rgba(96, 237, 231, 0.22);
+      background:
+        linear-gradient(90deg, rgba(3, 87, 103, 0.86), rgba(15, 107, 118, 0.62) 58%, rgba(61, 48, 112, 0.48)),
+        radial-gradient(circle at 88% 50%, rgba(179, 132, 255, 0.24), transparent 30%);
+      box-shadow: inset 0 1px 0 rgba(223, 255, 252, 0.08);
+    }
+
+    .region-card.is-game .region-note-service small {
+      color: #d7fff8;
+      text-shadow: 0 1px 8px rgba(0, 21, 34, 0.5);
+    }
+
+    .region-card.is-game .region-note-service strong {
+      color: #f4fffe;
+      text-shadow: 0 1px 10px rgba(0, 21, 34, 0.38);
+    }
+
+    .region-card.is-game .plans-grid[data-category="game"] {
+      position: relative;
+      isolation: isolate;
+      padding: 20px 0 22px;
+    }
+
+    .region-card.is-game .plans-grid[data-category="game"]::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 2%;
+      left: 50%;
+      width: min(520px, 88vw);
+      height: 96%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at center, rgba(75, 255, 238, 0.35) 0%, rgba(39, 210, 219, 0.18) 35%, rgba(111, 90, 227, 0.09) 56%, transparent 75%);
+      filter: blur(18px);
+      opacity: 0.92;
+      pointer-events: none;
+    }
+
+    .region-card.is-game .plans-grid[data-category="game"] > .plan-card {
+      z-index: 1;
+      box-shadow:
+        0 22px 46px rgba(0, 24, 38, 0.34),
+        0 0 0 1px rgba(110, 255, 241, 0.16),
+        0 0 42px rgba(54, 235, 228, 0.18);
+    }
+
+    .region-card.is-game .plans-grid[data-category="game"] > .plan-card.featured {
+      border-color: rgba(139, 255, 244, 0.72);
+      box-shadow:
+        0 24px 48px rgba(0, 24, 38, 0.38),
+        0 0 0 1px rgba(174, 255, 247, 0.2),
+        0 0 34px rgba(66, 237, 225, 0.28);
+    }
+
+    .region-card.is-game .plan-card.featured .plan-top {
+      background:
+        radial-gradient(circle at 88% 12%, rgba(171, 255, 247, 0.28), transparent 28%),
+        radial-gradient(circle at 18% 0%, rgba(115, 211, 255, 0.14), transparent 30%),
+        linear-gradient(140deg, #064b55 0%, #087985 52%, #0c9ca1 100%);
+    }
+
+    .region-card.is-game .plan-card.featured .plan-foot {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(237, 252, 249, 0.98)),
+        radial-gradient(circle at 50% 0%, rgba(60, 226, 214, 0.13), transparent 48%);
+    }
+
+    .region-card.is-game .plan-card.featured .plan-features li {
+      background: linear-gradient(90deg, rgba(221, 252, 248, 0.92), rgba(246, 255, 252, 0.68));
+      border-color: rgba(38, 181, 177, 0.13);
+    }
+
+    .region-card.is-game .footer-note {
+      color: #d7fff8;
+      text-shadow: 0 1px 10px rgba(0, 21, 34, 0.56);
+    }
+
+    @keyframes game-ambient-drift {
+      from { transform: scale(1.02) translate3d(-0.5%, 0, 0); }
+      to { transform: scale(1.08) translate3d(0.8%, -0.5%, 0); }
+    }
+
+    @keyframes game-scan {
+      from { background-position: -120% 0, 0 0; }
+      to { background-position: 120% 0, 0 0; }
+    }
+
+    @media (max-width: 760px) {
+      .region-card.is-game {
+        padding: 10px 10px 18px;
+        border-radius: 18px;
+      }
+
+      .region-card.is-game .plans-grid[data-category="game"] {
+        padding: 12px 0 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .region-card.is-game::before,
+      .region-card.is-game .region-network-panel::after {
+        animation: none;
+      }
+    }
+
+    /* Mantém o título da localidade centralizado em todas as cidades. */
+    .region-head {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .region-head h2 {
+      max-width: none;
+      margin: 0;
+    }
+
+    .region-head h2::after {
+      left: 0;
+      width: min(68%, 260px);
+      height: 4px;
+      transform: none;
+      background: linear-gradient(90deg, #b8ee58 0%, #5fd8ce 42%, rgba(95, 216, 206, 0.7) 72%, rgba(95, 216, 206, 0) 100%);
+      box-shadow: 0 0 12px rgba(95, 216, 206, 0.3), 0 0 4px rgba(184, 238, 88, 0.42);
+      animation: region-title-glow 3.8s ease-in-out infinite;
+    }
+
+    @keyframes region-title-glow {
+      0%, 100% {
+        opacity: 0.72;
+        filter: brightness(0.94);
+        box-shadow: 0 0 8px rgba(95, 216, 206, 0.22), 0 0 3px rgba(184, 238, 88, 0.28);
+      }
+      50% {
+        opacity: 1;
+        filter: brightness(1.22);
+        box-shadow: 0 0 18px rgba(95, 216, 206, 0.55), 0 0 7px rgba(184, 238, 88, 0.5);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .region-head h2::after {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .region-head {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -3689,7 +3967,7 @@
         </div>
       </section>
 
-      <section class="region-card">
+      <section class="region-card" id="regionPlans">
         <div class="region-network-panel">
           <div class="region-primary">
             <div class="region-head">
@@ -3806,7 +4084,7 @@
     const planCategories = {
       residencial: regionalPlans,
       game: [
-        { key: "game-elite", name: "VIP Gamer Elite", speed: "500 MB", price: "99,90", highlight: "Seu game sem lag", bundle: ["ExitLag", "HBO Max"], featured: true }
+        { key: "game-elite", name: "VIP Gamer Elite", speed: "500 MB", price: "99,90", highlight: "Seu game sem lag", bundle: ["ExitLag"], featured: true }
       ],
       comercial: [
         { key: "com-start", name: "Start Comercial", speed: "200 MB", price: "90,00", highlight: "Rotina leve", bundle: ["SLA 4h (suporte)", "Cabeamento de 20 m", "Velocidade de download e upload iguais"] },
@@ -3918,6 +4196,7 @@
     const stateSelect = document.getElementById("stateSelect");
     const citySelect = document.getElementById("citySelect");
     const plansGrid = document.getElementById("plansGrid");
+    const regionPlans = document.getElementById("regionPlans");
     const regionTitle = document.getElementById("regionTitle");
     const regionNote = document.getElementById("regionNote");
     const summaryRow = document.getElementById("summaryRow");
@@ -4298,6 +4577,7 @@
       renderSummary(plans);
 
       plansGrid.dataset.category = selectedCategory;
+      regionPlans.classList.toggle("is-game", selectedCategory === "game");
       plansGrid.innerHTML = plans.map((plan) => {
         const isEnterprise = selectedCategory === "empresarial";
         const selectedClass = plan.key === selectedPlanByCategory[selectedCategory] ? " is-selected" : "";

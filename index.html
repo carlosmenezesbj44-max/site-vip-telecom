@@ -894,6 +894,7 @@
 
     .benefits-cta {
       justify-self: start;
+      border-radius: 14px 4px 14px 4px;
     }
 
     .benefits-tiles {
@@ -1607,6 +1608,10 @@
       border: 1px solid rgba(255, 255, 255, 0.24);
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(10px);
+    }
+
+    .hero-banner-copy .hero-actions .button-secondary {
+      border-radius: 14px 4px 14px 4px;
     }
 
     .hero-foot {
@@ -3171,7 +3176,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      border-radius: 19px;
+      border-radius: 14px 4px 14px 4px;
       color: #f3ffff;
       font-size: 0.92rem;
       font-weight: 700;
@@ -3279,6 +3284,7 @@
 
     .instagram-section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
     .instagram-follow { display: inline-flex; align-items: center; gap: 9px; padding: 11px 16px; border: 1px solid rgba(7,93,102,.22); border-radius: 999px; color: #075d66; background: rgba(255,255,255,.68); font-weight: 900; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .instagram-follow svg { width: 26px; height: 26px; flex: 0 0 26px; padding: 4px; border-radius: 8px; stroke: #fff; fill: none; stroke-width: 1.9; background: linear-gradient(145deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%); box-shadow: 0 4px 10px rgba(150,47,191,.22); }
     .instagram-follow:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 12px 24px rgba(4,52,58,.12); }
     .instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
     .instagram-post { position: relative; display: block; aspect-ratio: 3 / 1; overflow: hidden; border-radius: 14px; border: 1px solid rgba(7,93,102,.14); background: #075d66; box-shadow: 0 12px 26px rgba(4,52,58,.1); }
@@ -4312,7 +4318,7 @@
         </article>
         <article>
           <strong>MAX e benefícios</strong>
-          <span>Mais valor percebido sem poluir a página.</span>
+          <span>Entretenimento e vantagens para aproveitar mais o seu plano.</span>
         </article>
       </div>
     </section>
@@ -4698,7 +4704,10 @@
           <p>
             Acompanhe novidades, bastidores, campanhas e histórias da comunidade VIP Telecom.
           </p>
-          <a class="instagram-follow" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer">◎ @viptelecomoficial ↗</a>
+          <a class="instagram-follow" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da VIP Telecom: @viptelecomoficial">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+            <span>@viptelecomoficial</span><span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div class="instagram-grid" aria-label="Publicações da VIP Telecom no Instagram">
           <a class="instagram-post" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer"><img src="assets/img/instagram-vip-grid-01.png" alt="Publicações da VIP Telecom sobre comunidade e clientes" loading="lazy"></a>

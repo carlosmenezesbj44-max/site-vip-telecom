@@ -47,7 +47,27 @@
     .story-card { padding: 26px; border: 1px solid rgba(7,93,102,.12); border-radius: 22px; background: rgba(255,255,255,.75); box-shadow: 0 18px 36px rgba(4,52,58,.07); }
     .story-card strong { display: block; color: #087e87; font-family: "Sora", sans-serif; font-size: 1.1rem; }
     .story-card p { margin: 10px 0 0; color: rgba(23,59,49,.72); font-size: .9rem; line-height: 1.6; }
-    @media (max-width: 760px) { .nav { min-height: 70px; } .nav-links { gap: 10px; } .nav-links a:not(.back-link) { display: none; } .page-heading { min-height: 72px; } .about-hero { min-height: 480px; } .about-hero-content { padding: 56px 20px; } .about-hero h2 { font-size: clamp(2.45rem, 12vw, 4rem); } .about-hero h2.typewriter-line { min-height: 2.8em; white-space: normal; font-size: clamp(.82rem, 3.2vw, 1.1rem); } .typewriter-word { width: auto; } .story { grid-template-columns: 1fr; } }
+    .timeline-section { width: min(calc(100% - 32px), 1180px); margin: 108px auto 0; }
+    .timeline-intro { max-width: 620px; margin: 0 auto 66px; text-align: center; }
+    .timeline-kicker { color: #087e87; font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .timeline-intro h2 { margin: 12px 0 0; color: #102d2b; font-family: "Sora", sans-serif; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -.06em; }
+    .timeline-intro p { margin: 16px auto 0; max-width: 520px; color: rgba(23,59,49,.68); line-height: 1.7; }
+    .timeline { position: relative; display: grid; gap: 42px; padding: 8px 0 28px; }
+    .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; transform: translateX(-50%); background: linear-gradient(180deg, #49f2d0, #087e87 48%, rgba(7,93,102,.12)); }
+    .timeline-item { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 78px; align-items: center; min-height: 176px; }
+    .timeline-item:nth-child(even) .timeline-card { grid-column: 2; }
+    .timeline-item:nth-child(even) .timeline-meta { grid-column: 1; grid-row: 1; text-align: right; }
+    .timeline-card { position: relative; padding: 27px 30px; border: 1px solid rgba(7,93,102,.13); border-radius: 24px; background: rgba(255,255,255,.86); box-shadow: 0 18px 42px rgba(4,52,58,.09); transition: transform .35s ease, box-shadow .35s ease; }
+    .timeline-card::before { content: ""; position: absolute; top: 50%; right: -79px; width: 78px; height: 1px; background: linear-gradient(90deg, rgba(7,93,102,.14), #49f2d0); }
+    .timeline-item:nth-child(even) .timeline-card::before { right: auto; left: -79px; background: linear-gradient(90deg, #49f2d0, rgba(7,93,102,.14)); }
+    .timeline-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(4,52,58,.14); }
+    .timeline-card h3 { margin: 0; color: #102d2b; font-family: "Sora", sans-serif; font-size: clamp(1.25rem, 2.4vw, 1.8rem); letter-spacing: -.05em; }
+    .timeline-card p { margin: 12px 0 0; color: rgba(23,59,49,.72); font-size: .94rem; line-height: 1.7; }
+    .timeline-meta { color: #087e87; font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .timeline-marker { position: absolute; z-index: 1; left: 50%; top: 50%; display: grid; place-items: center; width: 46px; height: 46px; transform: translate(-50%, -50%); border: 7px solid #f7fbfa; border-radius: 50%; color: #075d66; background: #49f2d0; box-shadow: 0 0 0 1px rgba(7,93,102,.14), 0 8px 20px rgba(7,93,102,.16); }
+    .timeline-marker svg { width: 16px; height: 16px; }
+    @media (prefers-reduced-motion: no-preference) { .timeline-item { animation: timelineReveal .7s both; animation-delay: calc(var(--timeline-index) * 110ms); } @keyframes timelineReveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } } }
+    @media (max-width: 760px) { .nav { min-height: 70px; } .nav-links { gap: 10px; } .nav-links a:not(.back-link) { display: none; } .page-heading { min-height: 72px; } .about-hero { min-height: 480px; } .about-hero-content { padding: 56px 20px; } .about-hero h2 { font-size: clamp(2.45rem, 12vw, 4rem); } .about-hero h2.typewriter-line { min-height: 2.8em; white-space: normal; font-size: clamp(.82rem, 3.2vw, 1.1rem); } .typewriter-word { width: auto; } .story { grid-template-columns: 1fr; } .timeline-section { margin-top: 76px; } .timeline-intro { margin-bottom: 42px; text-align: left; } .timeline-intro p { margin-left: 0; } .timeline { gap: 28px; padding: 4px 0 20px 28px; } .timeline::before { left: 6px; transform: none; } .timeline-item, .timeline-item:nth-child(even) { display: flex; flex-direction: column; align-items: stretch; gap: 0; min-height: 0; } .timeline-meta, .timeline-item:nth-child(even) .timeline-meta { order: 1; margin: 0 0 10px 25px; text-align: left; } .timeline-card, .timeline-item:nth-child(even) .timeline-card { order: 2; margin-left: 25px; padding: 23px 22px; } .timeline-marker { left: -22px; top: 49px; width: 38px; height: 38px; border-width: 5px; } .timeline-card::before, .timeline-item:nth-child(even) .timeline-card::before { top: 43px; right: auto; left: -47px; width: 46px; background: linear-gradient(90deg, #49f2d0, rgba(7,93,102,.14)); } }
   </style>
 </head>
 <body>
@@ -78,6 +98,47 @@
         <article class="story-card"><strong>Conexão</strong><p>Internet pensada para acompanhar sua casa, seu comércio e sua empresa.</p></article>
         <article class="story-card"><strong>Proximidade</strong><p>Atendimento claro e presente em todos os momentos da sua jornada.</p></article>
         <article class="story-card"><strong>Evolução</strong><p>Uma busca constante por tecnologia, qualidade e novas possibilidades.</p></article>
+      </section>
+      <section class="timeline-section" aria-labelledby="timeline-title">
+        <div class="timeline-intro">
+          <span class="timeline-kicker">Nossa jornada</span>
+          <h2 id="timeline-title">Uma história feita de conexões</h2>
+          <p>Cada etapa trouxe novos aprendizados, mais proximidade e uma rede preparada para acompanhar o ritmo das pessoas.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item" style="--timeline-index: 1">
+            <div class="timeline-card">
+              <h3>Onde tudo começou</h3>
+              <p>A VIP Telecom nasceu com um propósito simples: levar internet de qualidade e atendimento próximo para a nossa região.</p>
+            </div>
+            <div class="timeline-meta">Primeiros passos</div>
+            <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h16M7 4v4m10-4v4M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/><path d="M8 14h2m2 0h2m2 0h1M8 17h2m2 0h2"/></svg></span>
+          </article>
+          <article class="timeline-item" style="--timeline-index: 2">
+            <div class="timeline-card">
+              <h3>Mais perto de você</h3>
+              <p>Ampliamos nossa presença e fortalecemos o atendimento local, criando relações que vão além da instalação.</p>
+            </div>
+            <div class="timeline-meta">Expansão</div>
+            <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg></span>
+          </article>
+          <article class="timeline-item" style="--timeline-index: 3">
+            <div class="timeline-card">
+              <h3>Uma rede em evolução</h3>
+              <p>Investimos em tecnologia, estrutura e pessoas para entregar uma conexão mais estável, rápida e consistente.</p>
+            </div>
+            <div class="timeline-meta">Evolução</div>
+            <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>
+          </article>
+          <article class="timeline-item" style="--timeline-index: 4">
+            <div class="timeline-card">
+              <h3>Conectando o presente</h3>
+              <p>Hoje, seguimos construindo o próximo capítulo com planos para diferentes momentos da vida e um time sempre por perto.</p>
+            </div>
+            <div class="timeline-meta">Hoje</div>
+            <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/></svg></span>
+          </article>
+        </div>
       </section>
     </div>
   </main>
