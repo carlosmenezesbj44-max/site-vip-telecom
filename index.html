@@ -1185,17 +1185,20 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      min-height: 52px;
-      gap: 14px;
-      padding: 0 16px 0 23px;
-      border: 1px solid rgba(214, 255, 251, 0.86);
-      border-radius: 14px;
-      color: #03444b;
-      background: linear-gradient(135deg, #e4fffc 0%, #a8eee9 52%, #72d8d4 100%);
+      min-height: 56px;
+      gap: 16px;
+      padding: 0 12px 0 24px;
+      border: 1px solid rgba(137, 255, 240, 0.72);
+      border-radius: 14px 4px 14px 4px;
+      color: #f1fffd;
+      background:
+        linear-gradient(110deg, rgba(2, 49, 61, 0.9), rgba(8, 113, 119, 0.82)),
+        radial-gradient(circle at 100% 0, rgba(123, 255, 231, 0.24), transparent 42%);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.65),
-        0 0 0 4px rgba(125, 239, 231, 0.1),
-        0 14px 34px rgba(43, 186, 190, 0.28);
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 0 0 4px rgba(125, 239, 231, 0.08),
+        0 14px 34px rgba(3, 63, 75, 0.3);
+      backdrop-filter: blur(14px) saturate(1.25);
       transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     }
 
@@ -1204,7 +1207,7 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(105deg, transparent 22%, rgba(255, 255, 255, 0.62) 48%, transparent 72%);
+      background: linear-gradient(105deg, transparent 22%, rgba(166, 255, 245, 0.38) 48%, transparent 72%);
       transform: translateX(-120%);
       transition: transform 520ms ease;
     }
@@ -1212,23 +1215,32 @@
     .app-cta span {
       display: grid;
       place-items: center;
-      width: 27px;
-      height: 27px;
-      border: 1px solid rgba(4, 56, 63, 0.2);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.28);
-      font-size: 1rem;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border: 1px solid rgba(214, 255, 251, 0.76);
+      border-radius: 50%;
+      color: #07383f;
+      background: #b8ff5f;
+      box-shadow: 0 0 0 4px rgba(184, 255, 95, 0.1), 0 0 20px rgba(184, 255, 95, 0.3);
+      font-size: 1.05rem;
       line-height: 1;
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
     .app-cta:hover {
-      color: #03444b;
+      color: #ffffff;
       filter: saturate(1.06) brightness(1.04);
       transform: translateY(-3px);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.75),
-        0 0 0 5px rgba(125, 239, 231, 0.12),
-        0 18px 42px rgba(43, 186, 190, 0.38);
+        inset 0 1px 0 rgba(255, 255, 255, 0.34),
+        0 0 0 5px rgba(125, 239, 231, 0.14),
+        0 18px 42px rgba(43, 186, 190, 0.42);
+    }
+
+    .app-cta:hover span {
+      transform: translateX(2px) rotate(-8deg);
+      box-shadow: 0 0 0 5px rgba(184, 255, 95, 0.14), 0 0 26px rgba(184, 255, 95, 0.5);
     }
 
     .app-cta:hover::before {
@@ -1236,7 +1248,7 @@
     }
 
     .app-cta:focus-visible {
-      color: #03444b;
+      color: #ffffff;
       outline: 3px solid #d5fffb;
       outline-offset: 4px;
       box-shadow: 0 0 0 7px rgba(125, 239, 231, 0.22), 0 18px 36px rgba(43, 186, 190, 0.34);
@@ -3348,16 +3360,16 @@
     .cta-copy p { max-width: 45ch; margin: 10px 0 16px; color: rgba(232,255,252,.78); line-height: 1.5; font-size: .9rem; }
     .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .cta-actions .button-primary,
-    .cta-actions .button-secondary { position: relative; min-height: 52px; padding: 0 22px; border-radius: 999px; font-weight: 900; letter-spacing: -.01em; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
+    .cta-actions .button-secondary { position: relative; min-height: 52px; padding: 0 22px; border-radius: 14px 4px 14px 4px; font-weight: 900; letter-spacing: -.01em; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
     .cta-actions .button-primary::before,
     .cta-actions .button-secondary::before { content: ""; position: absolute; inset: 1px; border-radius: inherit; pointer-events: none; opacity: .7; background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.6) 48%, transparent 72%); transform: translateX(-120%); transition: transform .7s ease; }
     .cta-actions .button-primary:hover::before,
     .cta-actions .button-secondary:hover::before { transform: translateX(120%); }
     .cta-actions .button-primary { background: linear-gradient(135deg, rgba(154,255,239,.32), rgba(53,234,216,.14)); color: #efffff; border: 1px solid rgba(183,255,245,.72); box-shadow: 0 12px 30px rgba(17,217,202,.18), 0 0 0 4px rgba(53,234,216,.06), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -10px 24px rgba(2,49,58,.12); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-    .cta-actions .button-primary::after { content: "↗"; margin-left: 10px; font-size: 1.1rem; }
+    .cta-actions .button-primary::after { content: "↗"; display: grid; place-items: center; width: 30px; height: 30px; margin-left: 10px; border: 1px solid rgba(214,255,251,.76); border-radius: 50%; color: #07383f; background: #b8ff5f; box-shadow: 0 0 0 4px rgba(184,255,95,.1), 0 0 18px rgba(184,255,95,.24); font-size: 1rem; }
     .cta-actions .button-primary:hover { transform: translateY(-3px); background: linear-gradient(135deg, rgba(154,255,239,.5), rgba(53,234,216,.22)); box-shadow: 0 18px 38px rgba(17,217,202,.3), 0 0 0 6px rgba(53,234,216,.1), inset 0 1px 0 rgba(255,255,255,.75); }
     .cta-actions .button-secondary { color: #f2fffd; border: 1px solid rgba(157,255,243,.52); background: linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.035)); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), inset 0 -10px 24px rgba(2,49,58,.1), 0 8px 20px rgba(0,25,31,.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-    .cta-actions .button-secondary::after { content: "✉"; margin-left: 10px; color: #8cf5e7; font-size: .95rem; }
+    .cta-actions .button-secondary::after { content: "✉"; display: grid; place-items: center; width: 30px; height: 30px; margin-left: 10px; border: 1px solid rgba(140,245,231,.55); border-radius: 50%; color: #07383f; background: #8cf5e7; box-shadow: 0 0 0 4px rgba(140,245,231,.08), 0 0 18px rgba(140,245,231,.2); font-size: .9rem; }
     .cta-actions .button-secondary:hover { transform: translateY(-3px); border-color: #8cf5e7; background: linear-gradient(135deg, rgba(53,234,216,.22), rgba(255,255,255,.08)); box-shadow: 0 14px 30px rgba(0,25,31,.22), 0 0 0 4px rgba(53,234,216,.08); }
     .cta-photo-label { position: absolute; z-index: 1; right: 24px; bottom: 22px; padding: 10px 14px; border: 1px solid rgba(154,255,241,.4); border-radius: 999px; background: rgba(3,56,65,.7); color: #fff; font-size: .76rem; font-weight: 800; backdrop-filter: blur(8px); }
 
