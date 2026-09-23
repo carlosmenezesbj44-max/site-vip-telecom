@@ -4457,16 +4457,35 @@
           var opaOnlineStyle = document.createElement("style");
           opaOnlineStyle.textContent = `.opa_ico{background:linear-gradient(135deg,rgba(20,121,129,.84),rgba(0,75,84,.72))!important;backdrop-filter:blur(18px) saturate(1.2)!important;-webkit-backdrop-filter:blur(18px) saturate(1.2)!important}.opa_ico::after{content:""!important;display:block!important;position:absolute;left:auto!important;right:24px!important;top:24px!important;width:13px!important;height:13px!important;border-radius:50%;background:#19ee83;box-shadow:0 0 0 5px rgba(25,238,131,.14),0 0 18px rgba(25,238,131,.9);animation:opa-online-pulse 1.7s ease-in-out infinite}@keyframes opa-online-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.72);opacity:.66}}`;
           document.head.appendChild(opaOnlineStyle);
+          function addOpaWelcome() {
+            var chatBody = document.querySelector(".opa_chat .opa_corpo");
+            if (chatBody && !chatBody.querySelector(".opa-welcome")) {
+              chatBody.insertAdjacentHTML("afterbegin", '<div class="opa-welcome">Olá! Como posso ajudar você hoje?</div>');
+            }
+          }
+
+          function continueAsOpaAnonymous(attempt) {
+            var chat = visibleOpaChat();
+            if (!chat || hasOpaMessageField(chat)) return;
+
+            var anonymousAccess = chat.querySelector(".sem-login");
+            if (!anonymousAccess || !opa.socket) {
+              if (attempt < 40) {
+                window.setTimeout(function () {
+                  continueAsOpaAnonymous(attempt + 1);
+                }, 250);
+              }
+              return;
+            }
+
+            anonymousAccess.click();
+            window.setTimeout(addOpaWelcome, 80);
+          }
+
           opa.estrutura.ico.addEventListener("click", function () {
             window.setTimeout(function () {
-              var anonymousAccess = document.querySelector(".opa_chat .sem-login");
-              if (anonymousAccess) anonymousAccess.click();
-              window.setTimeout(function () {
-                var chatBody = document.querySelector(".opa_chat .opa_corpo");
-                if (chatBody && !chatBody.querySelector(".opa-welcome")) {
-                  chatBody.insertAdjacentHTML("afterbegin", '<div class="opa-welcome">Olá! Como posso ajudar você hoje?</div>');
-                }
-              }, 80);
+              continueAsOpaAnonymous(0);
+              window.setTimeout(addOpaWelcome, 120);
             }, 0);
           });
 
@@ -4479,7 +4498,7 @@
 
           function visibleOpaChat() {
             var chat = document.querySelector(".opa_chat");
-            return chat && chat.offsetParent !== null ? chat : null;
+            return chat && getComputedStyle(chat).display !== "none" ? chat : null;
           }
 
           function hasOpaMessageField(chat) {
@@ -4495,6 +4514,11 @@
             var chat = visibleOpaChat();
             if (!chat || hasOpaMessageField(chat) || opaRecoveryInProgress) {
               if (chat && hasOpaMessageField(chat)) opaAnonymousAttempts = 0;
+              return;
+            }
+
+            if (!opa.socket) {
+              scheduleOpaRecovery(400);
               return;
             }
 
