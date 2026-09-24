@@ -3312,28 +3312,57 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .instagram-section-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr); align-items: center; gap: 20px 42px; }
-    .instagram-intro { min-width: 0; grid-column: 1; grid-row: 1 / span 2; }
-    .instagram-section-head > p { grid-column: 2; grid-row: 1; align-self: end; margin: 0; }
-    .instagram-social-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; grid-column: 2; grid-row: 2; align-self: start; }
-    .instagram-follow { display: inline-flex; align-items: center; gap: 9px; padding: 11px 16px; border: 1px solid rgba(7,93,102,.22); border-radius: 999px; color: #075d66; background: rgba(255,255,255,.68); font-weight: 900; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-    .instagram-follow svg { width: 26px; height: 26px; flex: 0 0 26px; padding: 4px; border-radius: 8px; stroke: #fff; fill: none; stroke-width: 1.9; background: linear-gradient(145deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%); box-shadow: 0 4px 10px rgba(150,47,191,.22); }
-    .instagram-follow:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 12px 24px rgba(4,52,58,.12); }
-    .instagram-counter { display: inline-flex; align-items: flex-end; gap: 5px; margin-top: 12px; padding: 9px 11px 10px; border-radius: 17px; color: #03343a; background: linear-gradient(145deg, rgba(255,255,255,.97), rgba(216,247,246,.9)); box-shadow: 0 12px 24px rgba(4,52,58,.1), inset 0 1px 0 rgba(255,255,255,.95); }
-    .instagram-counter-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-right: 3px; border-radius: 13px; background: linear-gradient(145deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%); box-shadow: 0 6px 12px rgba(150,47,191,.2); }
+    .instagram-feature { position: relative; isolation: isolate; overflow: hidden; padding: clamp(34px, 5vw, 68px) 0; color: #173d2c; background: linear-gradient(135deg, #f1fbf8 0%, #e4f7f3 55%, #d8f3ed 100%); }
+    .instagram-feature::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .42; background-image: linear-gradient(rgba(7,93,102,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(7,93,102,.09) 1px, transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.75) 62%, transparent 100%); }
+    .instagram-feature::after { content: ""; position: absolute; z-index: -1; width: min(58vw, 720px); aspect-ratio: 1; left: -18%; bottom: -70%; border-radius: 50%; border: 34px solid rgba(33,215,190,.12); box-shadow: 0 0 0 28px rgba(33,215,190,.06); }
+    .instagram-layout { display: grid; width: min(calc(100% - 48px), 1440px); max-width: 1440px; grid-template-columns: minmax(480px, .95fr) minmax(500px, 1.05fr); align-items: center; gap: clamp(30px, 4vw, 64px); min-height: 620px; }
+    .instagram-copy { position: relative; z-index: 2; min-width: 0; }
+    .instagram-copy .eyebrow { border-color: rgba(7,93,102,.24); background: rgba(255,255,255,.64); }
+    .instagram-copy h2 { max-width: 680px; margin: 26px 0 18px; color: #173d2c; font-size: clamp(2.5rem, 4.8vw, 4.7rem); line-height: .99; letter-spacing: -.055em; }
+    .instagram-copy h2 span { color: #08b95d; }
+    .instagram-section-head > p { max-width: 54ch; margin: 0; color: #426b5d; font-size: clamp(1.05rem, 1.45vw, 1.35rem); line-height: 1.5; }
+    .instagram-benefits { display: flex; flex-wrap: wrap; gap: 14px 24px; margin: 30px 0 28px; padding: 0; list-style: none; }
+    .instagram-benefits li { display: flex; align-items: center; gap: 10px; flex: 1 1 145px; max-width: 195px; color: #143c2d; font-size: .77rem; font-weight: 850; line-height: 1.25; text-transform: uppercase; }
+    .instagram-benefit-icon { display: grid; flex: 0 0 46px; width: 46px; height: 46px; place-items: center; border-radius: 50%; color: #064c36; background: #52f04b; box-shadow: 0 8px 18px rgba(11,166,89,.18); font-size: 1.25rem; }
+    .instagram-social-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+    .instagram-follow { display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 11px 21px; border: 0; border-radius: 15px; color: #fff; background: #004a4e; box-shadow: 0 10px 22px rgba(4,52,58,.18); font-size: 1.05rem; font-weight: 900; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+    .instagram-follow svg { width: 24px; height: 24px; flex: 0 0 24px; fill: none; stroke: #fff; stroke-width: 1.9; }
+    .instagram-follow:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(4,52,58,.25); }
+    .instagram-counter { display: inline-flex; align-items: center; gap: 7px; margin-top: 17px; padding: 8px 11px; border: 1px solid rgba(7,93,102,.13); border-radius: 16px; color: #03343a; background: rgba(255,255,255,.8); box-shadow: 0 12px 24px rgba(4,52,58,.1), inset 0 1px 0 #fff; }
+    .instagram-counter-icon { display: grid; flex: 0 0 48px; width: 48px; height: 48px; place-items: center; margin-right: 1px; border-radius: 13px; background: linear-gradient(145deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%); box-shadow: 0 6px 12px rgba(150,47,191,.2); }
     .instagram-counter-icon svg { width: 29px; height: 29px; fill: none; stroke: #fff; stroke-width: 2.4; }
-    .instagram-counter-digits { display: flex; gap: 4px; }
-    .instagram-counter-digit { display: grid; place-items: center; width: 34px; height: 49px; border: 1px solid rgba(7,93,102,.2); border-radius: 6px; color: #075d66; background: linear-gradient(180deg, #fff 0%, #e2f6f3 100%); box-shadow: 0 4px 0 rgba(7,93,102,.16), 0 7px 12px rgba(4,52,58,.08); font: 800 24px/1 Sora, sans-serif; }
-    .instagram-counter-label { display: flex; flex-direction: column; gap: 3px; margin-left: 5px; padding-bottom: 3px; color: rgba(24,53,33,.7); font-size: 10px; font-weight: 800; line-height: 1.15; text-transform: uppercase; letter-spacing: .05em; }
-    .instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
-    .instagram-post { position: relative; display: block; aspect-ratio: 3 / 1; overflow: hidden; border-radius: 14px; border: 1px solid rgba(7,93,102,.14); background: #075d66; box-shadow: 0 12px 26px rgba(4,52,58,.1); }
-    .instagram-post img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, filter .35s ease; }
-    .instagram-post::after { content: "Abrir no Instagram ↗"; position: absolute; inset: auto 9px 9px; padding: 7px 8px; border: 1px solid rgba(255,255,255,.34); border-radius: 999px; background: rgba(3,47,56,.72); color: #fff; font-size: .66rem; font-weight: 800; text-align: center; opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .25s ease; backdrop-filter: blur(8px); }
-    .instagram-post:hover img { transform: scale(1.06); filter: brightness(.78); }
-    .instagram-post:hover::after { opacity: 1; transform: translateY(0); }
+    .instagram-counter-digits { display: flex; gap: 5px; }
+    .instagram-counter-digit { display: grid; place-items: center; width: 38px; height: 51px; border: 1px solid rgba(7,93,102,.2); border-radius: 7px; color: #075d66; background: linear-gradient(180deg, #fff 0%, #e2f6f3 100%); box-shadow: 0 4px 0 rgba(7,93,102,.16), 0 7px 12px rgba(4,52,58,.08); font: 800 25px/1 Sora, sans-serif; }
+    .instagram-counter-label { display: flex; flex-direction: column; gap: 3px; margin-left: 4px; padding: 0 2px 0 4px; color: rgba(24,53,33,.7); font-size: 11px; font-weight: 800; line-height: 1.15; text-transform: uppercase; letter-spacing: .05em; }
+    .instagram-visual { position: relative; display: grid; min-width: 0; min-height: 590px; place-items: center; perspective: 1200px; }
+    .instagram-orbit { position: absolute; top: -2%; right: -8%; width: 82%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 60% 42%, #53e6c1 0 12%, #11b991 12.5% 28%, #087f72 28.5% 50%, transparent 50.5%); opacity: .96; }
+    .instagram-phone { position: relative; z-index: 2; width: clamp(280px, 34vw, 430px); padding: 15px; border: 1px solid rgba(255,255,255,.6); border-radius: 54px; background: #11191c; box-shadow: 0 32px 58px rgba(3,46,47,.28), inset 0 0 0 5px #202b2d; transform: rotate(5deg); }
+    .instagram-phone-screen { overflow: hidden; min-height: 570px; padding: 27px 17px 18px; border-radius: 40px; color: #f6ffff; background: #101519; }
+    .instagram-phone-notch { position: absolute; z-index: 3; top: 24px; left: 50%; width: 34%; height: 25px; border-radius: 999px; background: #050809; transform: translateX(-50%); }
+    .instagram-profile { display: flex; align-items: center; gap: 12px; padding: 22px 3px 16px; }
+    .instagram-avatar { display: grid; flex: 0 0 54px; width: 54px; height: 54px; place-items: center; border: 2px solid #27e94c; border-radius: 50%; color: #073d2e; background: #2cf20c; font-family: Sora, sans-serif; font-size: 13px; font-weight: 900; }
+    .instagram-profile-name { min-width: 0; font-weight: 850; line-height: 1.2; }
+    .instagram-profile-name small { display: block; margin-top: 3px; color: #c1cecb; font-size: .78rem; font-weight: 500; }
+    .instagram-profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 7px 0 14px; text-align: center; }
+    .instagram-profile-stats strong { display: block; font-size: .92rem; }
+    .instagram-profile-stats span { display: block; color: #c3cfcd; font-size: .62rem; }
+    .instagram-profile-bio { padding: 0 3px 13px; color: #d2dbd9; font-size: .67rem; line-height: 1.48; }
+    .instagram-profile-action { display: block; margin-bottom: 13px; padding: 10px; border-radius: 9px; color: #073c2d; background: #2ee63d; font-size: .82rem; font-weight: 850; text-align: center; }
+    .instagram-phone-posts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 3px; }
+    .instagram-phone-posts a { display: block; aspect-ratio: 1; overflow: hidden; background: #075d66; }
+    .instagram-phone-posts img { width: 100%; height: 100%; object-fit: cover; }
+    .instagram-float-post { position: absolute; z-index: 3; right: -5%; width: clamp(148px, 17vw, 220px); padding: 9px; border: 7px solid #fff; border-radius: 24px; background: #fff; box-shadow: 0 18px 38px rgba(3,46,47,.22); transform: rotate(-10deg); }
+    .instagram-float-post img { width: 100%; aspect-ratio: .83; border-radius: 11px; object-fit: cover; }
+    .instagram-float-post-one { top: 17%; }
+    .instagram-float-post-two { right: 0; bottom: 5%; width: clamp(160px, 19vw, 240px); transform: rotate(8deg); }
+    .instagram-float-post-two img { aspect-ratio: 1.15; }
+    .instagram-gradient-badge { position: absolute; z-index: 4; left: 3%; bottom: 7%; display: grid; width: clamp(92px, 10vw, 132px); aspect-ratio: 1; place-items: center; border-radius: 31%; background: linear-gradient(145deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%); box-shadow: 0 18px 32px rgba(150,47,191,.28); transform: rotate(-13deg); }
+    .instagram-gradient-badge svg { width: 56%; height: 56%; fill: none; stroke: #fff; stroke-width: 2.2; }
+    .instagram-grid { display: none; }
+    .instagram-post { position: relative; display: block; overflow: hidden; }
     .testimonial-grid { display: none; }
-    @media (max-width: 980px) { .instagram-section-head { grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr); gap: 18px 24px; } }
-    @media (max-width: 760px) { .instagram-section-head { display: flex; align-items: flex-start; flex-direction: column; gap: 16px; } .instagram-intro, .instagram-section-head > p, .instagram-social-cta { width: 100%; } .instagram-section-head > p { margin: 0; } .instagram-social-cta { gap: 0; } .instagram-counter { margin-top: 10px; } .instagram-grid { grid-template-columns: 1fr; gap: 10px; } }
+    @media (max-width: 1070px) { .instagram-layout { width: min(calc(100% - 40px), 900px); grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr); gap: 24px; min-height: 560px; } .instagram-visual { min-height: 530px; } .instagram-phone { width: clamp(270px, 38vw, 370px); } .instagram-phone-screen { min-height: 515px; } .instagram-float-post { right: -2%; } }
+    @media (max-width: 760px) { .instagram-feature { padding: 42px 0 54px; } .instagram-layout { width: min(calc(100% - 32px), 560px); grid-template-columns: minmax(0,1fr); gap: 22px; min-height: 0; } .instagram-copy h2 { max-width: 11ch; margin-top: 20px; font-size: clamp(2.55rem, 12vw, 4rem); } .instagram-section-head > p { font-size: 1.05rem; } .instagram-benefits { gap: 11px 15px; margin: 23px 0; } .instagram-benefits li { flex: 0 1 calc(50% - 8px); max-width: calc(50% - 8px); font-size: .68rem; } .instagram-benefit-icon { flex-basis: 39px; width: 39px; height: 39px; } .instagram-follow { max-width: 100%; font-size: .96rem; } .instagram-counter { max-width: 100%; flex-wrap: wrap; gap: 5px; padding: 7px; } .instagram-counter-icon { flex-basis: 42px; width: 42px; height: 42px; } .instagram-counter-digit { width: clamp(27px, 8vw, 36px); height: 45px; font-size: 22px; } .instagram-counter-label { font-size: 9.5px; } .instagram-visual { width: 100%; min-height: 490px; overflow: hidden; } .instagram-orbit { top: 4%; right: -21%; width: 100%; } .instagram-phone { width: clamp(258px, 72vw, 350px); padding: 12px; border-radius: 44px; transform: rotate(3deg); } .instagram-phone-screen { min-height: 455px; padding: 24px 13px 14px; border-radius: 33px; } .instagram-phone-notch { top: 20px; height: 21px; } .instagram-profile { padding-top: 17px; } .instagram-avatar { flex-basis: 46px; width: 46px; height: 46px; } .instagram-float-post { right: -1%; width: 30%; padding: 6px; border-width: 5px; border-radius: 18px; } .instagram-float-post-one { top: 12%; } .instagram-float-post-two { right: 0; bottom: 4%; width: 34%; } .instagram-gradient-badge { left: 2%; bottom: 4%; width: 24%; border-radius: 29%; } }
 
     .testimonial-top {
       display: flex;
@@ -4744,16 +4773,21 @@
       </div>
     </section>
 
-    <section class="section" id="depoimentos">
-      <div class="container">
-        <div class="section-head instagram-section-head">
-          <div class="instagram-intro">
-            <span class="eyebrow">Siga a VIP Telecom</span>
-            <h2 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3.2rem);">Conexão que também acontece fora da tela.</h2>
+    <section class="section instagram-feature" id="depoimentos">
+      <div class="container instagram-layout">
+        <div class="instagram-copy">
+          <div class="instagram-section-head">
+            <div class="instagram-intro">
+              <span class="eyebrow">Siga a VIP Telecom</span>
+              <h2>Acompanhe<br>nosso <span>Instagram</span></h2>
+            </div>
+            <p>Acompanhe novidades, bastidores, campanhas e histórias da comunidade VIP Telecom.</p>
           </div>
-          <p>
-            Acompanhe novidades, bastidores, campanhas e histórias da comunidade VIP Telecom.
-          </p>
+          <ul class="instagram-benefits" aria-label="O que você encontra no Instagram da VIP Telecom">
+            <li><span class="instagram-benefit-icon" aria-hidden="true">ϟ</span><span>Novidades<br>em tempo real</span></li>
+            <li><span class="instagram-benefit-icon" aria-hidden="true">♧</span><span>Campanhas<br>e eventos</span></li>
+            <li><span class="instagram-benefit-icon" aria-hidden="true">▶</span><span>Bastidores<br>do nosso dia a dia</span></li>
+          </ul>
           <div class="instagram-social-cta">
             <a class="instagram-follow" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da VIP Telecom: @viptelecomoficial">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
@@ -4766,9 +4800,38 @@
             </div>
           </div>
         </div>
-        <div class="instagram-grid" aria-label="Publicações da VIP Telecom no Instagram">
-          <a class="instagram-post" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer"><img src="assets/img/instagram-vip-grid-01.png" alt="Publicações da VIP Telecom sobre comunidade e clientes" loading="lazy"></a>
-          <a class="instagram-post" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer"><img src="assets/img/instagram-vip-grid-02.png" alt="Publicações da VIP Telecom sobre dicas e equipe" loading="lazy"></a>
+        <div class="instagram-visual" aria-label="Prévia do perfil VIP Telecom no Instagram">
+          <div class="instagram-orbit" aria-hidden="true"></div>
+          <div class="instagram-phone">
+            <div class="instagram-phone-notch" aria-hidden="true"></div>
+            <div class="instagram-phone-screen">
+              <div class="instagram-profile">
+                <div class="instagram-avatar" aria-hidden="true">VIP</div>
+                <div class="instagram-profile-name">viptelecomoficial<span aria-hidden="true"> 🔵</span><small>Vip Telecom</small></div>
+              </div>
+              <div class="instagram-profile-stats">
+                <div><strong>86</strong><span>publicações</span></div><div><strong id="instagram-profile-followers">—</strong><span>seguidores</span></div><div><strong>686</strong><span>seguindo</span></div>
+              </div>
+              <div class="instagram-profile-bio">Provedor de serviços de internet<br>💚 Internet que conecta você ao que importa<br>⚡ 100% Fibra | AL · PE · PB</div>
+              <a class="instagram-profile-action" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer">Seguir</a>
+              <div class="instagram-phone-posts" aria-label="Publicações recentes da VIP Telecom">
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação sobre clientes no Instagram"><img src="assets/img/instagram-vip-grid-01.png" alt="Campanha VIP Telecom com clientes" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação sobre campanhas no Instagram"><img src="assets/img/instagram-vip-grid-02.png" alt="Campanha e bastidores da VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-01.png" alt="Conteúdo da comunidade VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver conteúdo VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-02.png" alt="Conteúdo VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver novidades VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-01.png" alt="Novidades VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver campanhas VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-02.png" alt="Campanhas VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver bastidores VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-01.png" alt="Bastidores VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver mais publicações VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-02.png" alt="Mais publicações VIP Telecom" loading="lazy"></a>
+                <a href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Acessar Instagram VIP Telecom"><img src="assets/img/instagram-vip-grid-01.png" alt="Instagram VIP Telecom" loading="lazy"></a>
+              </div>
+            </div>
+          </div>
+          <a class="instagram-float-post instagram-float-post-one" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação da VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-02.png" alt="Publicação VIP Telecom com equipe e clientes" loading="lazy"></a>
+          <a class="instagram-float-post instagram-float-post-two" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver campanha da VIP Telecom no Instagram"><img src="assets/img/instagram-vip-grid-01.png" alt="Campanha VIP Telecom sobre conexão com clientes" loading="lazy"></a>
+          <a class="instagram-gradient-badge" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Acessar Instagram da VIP Telecom">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"></circle></svg>
+          </a>
         </div>
         <div class="testimonial-grid">
           <article class="testimonial">
@@ -5255,14 +5318,23 @@
   <script>
     (function () {
       var target = document.getElementById("instagram-followers");
-      if (!target) return;
+      var profileFollowers = document.getElementById("instagram-profile-followers");
+      if (!target && !profileFollowers) return;
       fetch("https://vip-instagram-counter.carlosmenezesbj44.workers.dev/api/instagram-followers")
         .then(function (response) { if (!response.ok) throw new Error("counter unavailable"); return response.json(); })
         .then(function (data) {
           if (Number.isInteger(data.followers)) {
-            target.innerHTML = String(data.followers).padStart(4, "0").split("").map(function (digit) {
-              return '<span class="instagram-counter-digit">' + digit + '</span>';
-            }).join("");
+            if (target) {
+              target.innerHTML = String(data.followers).split("").map(function (digit) {
+                return '<span class="instagram-counter-digit">' + digit + '</span>';
+              }).join("");
+            }
+            if (profileFollowers) {
+              var compactCount = data.followers >= 1000
+                ? (Math.floor(data.followers / 100) / 10).toFixed(1).replace(".", ",") + " mil"
+                : String(data.followers);
+              profileFollowers.textContent = compactCount;
+            }
           }
         })
         .catch(function () {});
