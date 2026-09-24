@@ -3392,17 +3392,17 @@
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
       align-items: center;
       gap: clamp(28px, 5vw, 72px);
-      padding: 42px clamp(30px, 5vw, 72px);
+      padding: 42px clamp(30px, 7vw, 104px);
       margin-top: 34px;
       width: 100%;
       height: auto;
       min-height: 360px;
       margin-left: 0;
       margin-right: 0;
-      border-radius: 24px;
+      border-radius: 0;
       border: 1px solid rgba(77, 239, 221, .34);
       background:
         radial-gradient(circle at 12% 0%, rgba(53, 234, 216, .25), transparent 32%),
@@ -3453,10 +3453,10 @@
     .cta-photo-label { position: absolute; z-index: 1; right: 24px; bottom: 22px; padding: 10px 14px; border: 1px solid rgba(154,255,241,.4); border-radius: 999px; background: rgba(3,56,65,.7); color: #fff; font-size: .76rem; font-weight: 800; backdrop-filter: blur(8px); }
 
     @media (max-width: 760px) {
-      .cta-band { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 26px; width: 100%; height: auto; min-height: 0; margin-left: 0; margin-right: 0; border-radius: 20px; }
+      .cta-band { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 26px max(20px, calc((100vw - 560px) / 2)); width: 100%; height: auto; min-height: 0; margin-left: 0; margin-right: 0; border-radius: 0; }
       .cta-copy { padding: 0; }
-      .cta-copy { width: 100%; }
-      .cta-support-photo { min-height: 230px; height: 230px; border-radius: 16px 5px 16px 5px; }
+      .cta-copy { width: 100%; max-width: 560px; }
+      .cta-support-photo { width: 100%; max-width: 560px; min-height: 230px; height: 230px; border-radius: 16px 5px 16px 5px; }
       .cta-support-photo::after { background: linear-gradient(180deg, #075e67 0%, transparent 35%), linear-gradient(0deg, rgba(2,38,45,.35), transparent 50%); }
     }
 
@@ -4862,7 +4862,9 @@
           </article>
         </div>
 
-        <div class="cta-band" id="contato">
+      </div>
+
+      <div class="cta-band" id="contato">
           <div class="cta-copy">
             <span class="eyebrow">Proximo passo</span>
             <h3 style="margin-top: 16px;">Fale com a equipe e encontre a melhor opção para sua necessidade.</h3>
@@ -4876,7 +4878,6 @@
             <img src="assets/img/support-vip-visual-clean.png" alt="Equipe de atendimento da VIP Telecom" loading="lazy" decoding="async">
             <span class="cta-photo-label">Atendimento humano e próximo</span>
           </div>
-        </div>
       </div>
     </section>
   </main>
