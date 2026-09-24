@@ -4746,7 +4746,7 @@
           </p>
           <a class="instagram-follow" href="https://www.instagram.com/viptelecomoficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da VIP Telecom: @viptelecomoficial">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
-            <span>@viptelecomoficial</span><span aria-hidden="true">↗</span>
+            <span>@viptelecomoficial</span><span id="instagram-followers" aria-live="polite" style="opacity:.76; font-size:.82em;">— seguidores</span><span aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="instagram-grid" aria-label="Publicações da VIP Telecom no Instagram">
@@ -5234,6 +5234,20 @@
       "6aa29193188b7b719f488ca2",
       `{"permitir_login_anonimo":"on","facebook_appid":"","google_credential":"","google_oauth":""}`
     );
+  </script>
+  <script>
+    (function () {
+      var target = document.getElementById("instagram-followers");
+      if (!target) return;
+      fetch("https://vip-instagram-counter.carlosmenezesbj44.workers.dev/api/instagram-followers")
+        .then(function (response) { if (!response.ok) throw new Error("counter unavailable"); return response.json(); })
+        .then(function (data) {
+          if (Number.isInteger(data.followers)) {
+            target.textContent = new Intl.NumberFormat("pt-BR").format(data.followers) + " seguidores";
+          }
+        })
+        .catch(function () { target.textContent = "siga a VIP Telecom"; });
+    })();
   </script>
 </body>
 </html>
